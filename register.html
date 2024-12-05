@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Absolute Mall</title>
+    <title>Login - Absolute Mall</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -13,29 +13,19 @@
 
     <main>
         <section class="form-container">
-            <h2>Register</h2>
-            <form id="register-form">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                    <small class="error-message" id="username-error"></small>
-                </div>
+            <h2>Login</h2>
+            <form id="login-form">
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" id="register-email" name="email" required>
-                    <small class="error-message" id="register-email-error"></small>
+                    <input type="email" id="email" name="email" required>
+                    <small class="error-message" id="email-error"></small>
                 </div>
                 <div>
                     <label for="password">Password:</label>
-                    <input type="password" id="register-password" name="password" required>
-                    <small class="error-message" id="register-password-error"></small>
+                    <input type="password" id="password" name="password" required>
+                    <small class="error-message" id="password-error"></small>
                 </div>
-                <div>
-                    <label for="confirm-password">Confirm Password:</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-                    <small class="error-message" id="confirm-password-error"></small>
-                </div>
-                <button type="submit">Register</button>
+                <button type="submit">Login</button>
             </form>
         </section>
     </main>

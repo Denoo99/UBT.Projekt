@@ -8,16 +8,113 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Navbar Placeholder -->
-    <header></header>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">Absolute Mall</a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Search products...">
+            <button type="button">Search</button>
+        </div>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Image Slider -->
+    <section class="slider-container">
+        <div class="slider">
+            <div class="slide fade">
+                <img src="images/slider1.jpg" alt="Tech Gadgets">
+            </div>
+            <div class="slide fade">
+                <img src="images/slider2.jpg" alt="Smartphones">
+            </div>
+            <div class="slide fade">
+                <img src="images/slider3.jpg" alt="Laptops">
+            </div>
+        </div>
+    </section>
 
     <!-- Page Content -->
     <main>
         <h1>Welcome to Absolute Mall</h1>
         <p>Your one-stop shop for all tech gadgets.</p>
+
+        <!-- Special Offers Section -->
+        <section class="special-offers">
+            <h2>Special Offers</h2>
+            <div class="offer">
+                <img src="images/offer1.jpg" alt="Offer 1">
+                <div class="offer-details">
+                    <h3>Smartphone Sale</h3>
+                    <p>Up to 50% off on selected smartphones!</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+            <div class="offer">
+                <img src="images/offer2.jpg" alt="Offer 2">
+                <div class="offer-details">
+                    <h3>Laptop Discount</h3>
+                    <p>Get the latest laptops with amazing discounts!</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sales Statistics Section -->
+        <section class="stats">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Products Available</p>
+            </div>
+            <div class="stat">
+                <h3>10,000+</h3>
+                <p>Satisfied Customers</p>
+            </div>
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Customer Support</p>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer Placeholder -->
-    <footer></footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Absolute Mall</h3>
+                <p>Discover the best gadgets at unbeatable prices. Shop now!</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: support@absolutemall.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Absolute Mall. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

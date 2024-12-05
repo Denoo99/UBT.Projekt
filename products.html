@@ -16,6 +16,10 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="login.html">Login</a></li>
             </ul>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search for products...">
+                <button id="search-button">Search</button>
+            </div>
         </nav>
     </header>
 
@@ -23,17 +27,27 @@
         <section class="product-section">
             <h2>Our Products</h2>
             <div class="product-grid">
-                <div class="product-card">
+                <div class="product-card" data-name="Smartphone">
                     <img src="images/phone.jpg" alt="Phone">
                     <h3>Smartphone</h3>
                     <p>$500</p>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-name="Laptop">
                     <img src="images/laptop.jpg" alt="Laptop">
                     <h3>Laptop</h3>
                     <p>$1200</p>
                 </div>
-                <!-- Add more products here -->
+                <div class="product-card" data-name="Tablet">
+                    <img src="images/tablet.jpg" alt="Tablet">
+                    <h3>Tablet</h3>
+                    <p>$300</p>
+                </div>
+                <div class="product-card" data-name="Headphones">
+                    <img src="images/headphones.jpg" alt="Headphones">
+                    <h3>Headphones</h3>
+                    <p>$100</p>
+                </div>
+                <!-- More products here -->
             </div>
         </section>
     </main>
@@ -41,5 +55,7 @@
     <footer>
         <p>&copy; 2024 Absolute Mall. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -98,71 +98,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// Function to handle the search logic
+function handleSearch() {
+    const searchQuery = document.getElementById("search-input").value.toLowerCase();
+    const productCards = document.querySelectorAll(".product-card");
 
-// Navbar Content
-const navbarHTML = `
-    <nav class="navbar">
-        <div class="logo"><a href="index.html">Absolute Mall</a></div>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-        </ul>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-`;
+    productCards.forEach(function(card) {
+        const productName = card.getAttribute("data-name").toLowerCase();
 
-// Footer Content
-const footerHTML = `
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>About Absolute Mall</h3>
-                <p>Discover the best gadgets at unbeatable prices.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <p>Email: support@absolutemall.com</p>
-                <p>Phone: +123-456-7890</p>
-                <div class="social-icons">
-                    <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Absolute Mall. All rights reserved.</p>
-        </div>
-    </footer>
-`;
-
-// Inject Navbar and Footer
-document.addEventListener("DOMContentLoaded", () => {
-    const navbarContainer = document.querySelector("header");
-    const footerContainer = document.querySelector("footer");
-
-    if (navbarContainer) navbarContainer.innerHTML = navbarHTML;
-    if (footerContainer) footerContainer.innerHTML = footerHTML;
-
-    // Toggle Mobile Menu
-    document.querySelector(".mobile-menu-toggle").addEventListener("click", () => {
-        document.querySelector(".menu").classList.toggle("active");
+        // Check if the product name matches the search query
+        if (productName.includes(searchQuery)) {
+            card.style.display = "block";  // Show the product if it matches
+        } else {
+            card.style.display = "none";   // Hide the product if it doesn't match
+        }
     });
+}
+
+// Event listener for the search button click
+document.getElementById("search-button").addEventListener("click", function() {
+    handleSearch();  // Call the search function on button click
+});
+
+// Event listener for pressing Enter key in the search input field
+document.getElementById("search-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        handleSearch();  // Call the search function if Enter key is pressed
+    }
 });

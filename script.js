@@ -95,34 +95,92 @@ document.addEventListener("DOMContentLoaded", () => {
             errorElement.style.display = "none";
         }
     }
-});
 
+    // Search Functionality
+    const searchButton = document.getElementById("search-button");
+    const searchInput = document.getElementById("search-input");
 
-// Function to handle the search logic
-function handleSearch() {
-    const searchQuery = document.getElementById("search-input").value.toLowerCase();
-    const productCards = document.querySelectorAll(".product-card");
+    if (searchButton && searchInput) {
+        // Event listener for the search button click
+        searchButton.addEventListener("click", function () {
+            handleSearch(); // Call the search function on button click
+        });
 
-    productCards.forEach(function(card) {
-        const productName = card.getAttribute("data-name").toLowerCase();
+        // Event listener for pressing Enter key in the search input field
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                handleSearch(); // Call the search function if Enter key is pressed
+            }
+        });
 
-        // Check if the product name matches the search query
-        if (productName.includes(searchQuery)) {
-            card.style.display = "block";  // Show the product if it matches
-        } else {
-            card.style.display = "none";   // Hide the product if it doesn't match
+        function handleSearch() {
+            const searchQuery = searchInput.value.toLowerCase();
+            const productCards = document.querySelectorAll(".product-card");
+
+            productCards.forEach(function (card) {
+                const productName = card.getAttribute("data-name").toLowerCase();
+
+                // Check if the product name matches the search query
+                if (productName.includes(searchQuery)) {
+                    card.style.display = "block"; // Show the product if it matches
+                } else {
+                    card.style.display = "none"; // Hide the product if it doesn't match
+                }
+            });
         }
-    });
+    }
+
+    // Slider Functionality
+    const slides = document.querySelectorAll(".slide");
+    if (slides.length > 0) {
+        let currentIndex = 0;
+
+        const showSlide = () => {
+            slides.forEach((slide, index) => {
+                slide.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+            });
+            currentIndex = (currentIndex + 1) % slides.length;
+        };
+
+        // Initialize the slider
+        showSlide(); // Show the first slide
+        setInterval(showSlide, 4000); // Auto-slide every 4 seconds
+    }
+}); // End of the DOMContentLoaded event listener
+
+
+
+
+
+let cart = [];
+
+function addToCart(productName, price) {
+    cart.push({ name: productName, price: price, quantity: 1 });
+    updateCartCount();
 }
 
-// Event listener for the search button click
-document.getElementById("search-button").addEventListener("click", function() {
-    handleSearch();  // Call the search function on button click
-});
+function buyNow(productName, price) {
+    addToCart(productName, price);
+    window.location.href = 'cart.html'; // Redirect to cart page
+}
 
-// Event listener for pressing Enter key in the search input field
-document.getElementById("search-input").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        handleSearch();  // Call the search function if Enter key is pressed
+function updateCartCount() {
+    const cartCount = cart.length;
+    document.getElementById('cart-icon').innerText = `Cart (${cartCount})`;
+}
+
+// Search function triggered by Enter key or button click
+function searchProduct(event) {
+    if (event.key === 'Enter' || event.type === 'click') {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            const productName = card.getAttribute('data-name').toLowerCase();
+            if (productName.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
     }
-});
+}

@@ -5,57 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absolute Mall - Products</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Absolute Mall</div>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">Absolute Mall</a>
+        </div>
+        <nav>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="login.html">Login</a></li>
+                <li><a href="#" id="cart-icon">Cart (0)</a></li> <!-- Cart link -->
             </ul>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search for products...">
-                <button id="search-button">Search</button>
-            </div>
         </nav>
     </header>
 
     <main>
+         <!-- Search Bar -->
+         <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for products..." onkeyup="searchProduct(event)">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <!-- Products Section -->
         <section class="product-section">
             <h2>Our Products</h2>
             <div class="product-grid">
-                <div class="product-card" data-name="Smartphone">
+                <div class="product-card" data-name="Smartphone" data-price="500">
                     <img src="images/phone.jpg" alt="Phone">
                     <h3>Smartphone</h3>
                     <p>$500</p>
+                    <button onclick="addToCart('Smartphone', 500)">Add to Cart</button>
+                    <button onclick="buyNow('Smartphone', 500)">Buy Now</button>
                 </div>
-                <div class="product-card" data-name="Laptop">
+                <div class="product-card" data-name="Laptop" data-price="1200">
                     <img src="images/laptop.jpg" alt="Laptop">
                     <h3>Laptop</h3>
                     <p>$1200</p>
+                    <button onclick="addToCart('Laptop', 1200)">Add to Cart</button>
+                    <button onclick="buyNow('Laptop', 1200)">Buy Now</button>
                 </div>
-                <div class="product-card" data-name="Tablet">
+                <div class="product-card" data-name="Tablet" data-price="300">
                     <img src="images/tablet.jpg" alt="Tablet">
                     <h3>Tablet</h3>
                     <p>$300</p>
+                    <button onclick="addToCart('Tablet', 300)">Add to Cart</button>
+                    <button onclick="buyNow('Tablet', 300)">Buy Now</button>
                 </div>
-                <div class="product-card" data-name="Headphones">
+                <div class="product-card" data-name="Headphones" data-price="100">
                     <img src="images/headphones.jpg" alt="Headphones">
                     <h3>Headphones</h3>
                     <p>$100</p>
+                    <button onclick="addToCart('Headphones', 100)">Add to Cart</button>
+                    <button onclick="buyNow('Headphones', 100)">Buy Now</button>
                 </div>
-                <!-- More products here -->
+            </div>
+        </section>
+
+        <!-- Black Friday Section -->
+        <section class="black-friday-section">
+            <h2>Black Friday Special Offers</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Smartwatch">
+                    <h3>Smartwatch</h3>
+                    <p><del>$250</del> <span>$150</span></p>
+                    <button onclick="addToCart('Smartwatch', 150)">Add to Cart</button>
+                    <button onclick="buyNow('Smartwatch', 150)">Buy Now</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/earbuds.jpg" alt="Earbuds">
+                    <h3>Earbuds</h3>
+                    <p><del>$100</del> <span>$60</span></p>
+                    <button onclick="addToCart('Earbuds', 60)">Add to Cart</button>
+                    <button onclick="buyNow('Earbuds', 60)">Buy Now</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/monitor.jpg" alt="Monitor">
+                    <h3>Monitor</h3>
+                    <p><del>$500</del> <span>$350</span></p>
+                    <button onclick="addToCart('Monitor', 350)">Add to Cart</button>
+                    <button onclick="buyNow('Monitor', 350)">Buy Now</button>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Absolute Mall. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Absolute Mall</h3>
+                <p>Discover the best gadgets at unbeatable prices. Shop now!</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: support@absolutemall.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>                
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Absolute Mall. All rights reserved.</p>
+        </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

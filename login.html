@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Mall</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* Styling for Login/Register Forms */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            background-color: #f5f5f5;
+        }
+
+        .form-wrapper {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-wrapper h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-group .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .form-wrapper button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-wrapper button:hover {
+            background: #0056b3;
+        }
+
+        .form-wrapper .toggle-form {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-wrapper .toggle-form a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .form-wrapper .toggle-form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="foto/absolute.png" alt="logo e absolute mall" width="130px" height="100px"></a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Ballina</a></li>
+                <li><a href="products.html">Produktet</a></li>
+                <li><a href="about.html">Rreth Nesh</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="form-wrapper" id="login-form">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" placeholder="Shkruani email-in" required>
+                        <div class="error" id="login-email-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" placeholder="Shkruani fjalëkalimin" required>
+                        <div class="error" id="login-password-error"></div>
+                    </div>
+                    <button type="button" onclick="validateLogin()">Login</button>
+                </form>
+                <div class="toggle-form">
+                    Nuk keni llogari? <a href="#" onclick="toggleForm('register')">Regjistrohuni</a>
+                </div>
+            </div>
+
+            <div class="form-wrapper" id="register-form" style="display: none;">
+                <h2>Regjistrohuni</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="register-name">Emri dhe Mbiemri</label>
+                        <input type="text" id="register-name" name="name" placeholder="Shkruani emrin tuaj të plotë" required>
+                        <div class="error" id="register-name-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" placeholder="Shkruani email-in" required>
+                        <div class="error" id="register-email-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" name="password" placeholder="Shkruani fjalëkalimin" required>
+                        <div class="error" id="register-password-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Konfirmoni Password-in</label>
+                        <input type="password" id="register-confirm-password" name="confirm-password" placeholder="Konfirmoni fjalëkalimin" required>
+                        <div class="error" id="register-confirm-password-error"></div>
+                    </div>
+                    <button type="button" onclick="validateRegister()">Regjistrohuni</button>
+                </form>
+                <div class="toggle-form">
+                    Keni llogari? <a href="#" onclick="toggleForm('login')">Hyni</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Absolute Mall</h3>
+                <p>Tek ne, gjithqka më e lirë e më e mirë. Mos mendo dy herë, por bli menjëherë!</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kontakti jonë</h3>
+                <p>Email: support@absolutemall.com</p>
+                <p>Telefoni: +383 44/48/49 - 123456</p>
+            </div>
+            <div class="footer-column">
+                <h3>Rrjetet tona sociale</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://x.com/?lang=en">Platforma X</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Absolute Mall. Të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
+    <script>
+        let users = []; // Array to store registered users
+
+        function toggleForm(formType) {
+            document.getElementById('login-form').style.display = formType === 'login' ? 'block' : 'none';
+            document.getElementById('register-form').style.display = formType === 'register' ? 'block' : 'none';
+        }
+
+        function validateLogin() {
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+            const user = users.find(user => user.email === email);
+
+            // Reset error messages
+            document.getElementById('login-email-error').innerText = '';
+            document.getElementById('login-password-error').innerText = '';
+
+            if (!email) {
+                document.getElementById('login-email-error').innerText = 'Ju lutemi shkruani email-in.';
+                return;
+            }
+
+            if (!password) {
+                document.getElementById('login-password-error').innerText = 'Ju lutemi shkruani fjalëkalimin.';
+                return;
+            }
+
+            if (!user) {
+                alert('Ju nuk jeni regjistruar ende. Ju lutemi regjistrohuni së pari.');
+                return;
+            }
+
+            if (user.password !== password) {
+                alert('Fjalëkalimi i pasaktë.');
+                return;
+            }
+
+            alert('Login i suksesshëm!');
+        }
+
+        function validateRegister() {
+            const name = document.getElementById('register-name').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value.trim();
+            const confirmPassword = document.getElementById('register-confirm-password').value.trim();
+
+            const emailPattern = /^[a-zA-Z0-9._-]+@(gmail|hotmail|yahoo)\.com$/;
+
+            // Reset error messages
+            document.getElementById('register-name-error').innerText = '';
+            document.getElementById('register-email-error').innerText = '';
+            document.getElementById('register-password-error').innerText = '';
+            document.getElementById('register-confirm-password-error').innerText = '';
+
+            let isValid = true;
+
+            if (!name || name.length < 5) {
+                isValid = false;
+                document.getElementById('register-name-error').innerText = 'Emri duhet të ketë së paku 5 karaktere.';
+            }
+
+            if (!email.match(emailPattern)) {
+                isValid = false;
+                document.getElementById('register-email-error').innerText = 'Email i pavlefshëm.';
+            }
+
+            if (!password || password.length < 5) {
+                isValid = false;
+                document.getElementById('register-password-error').innerText = 'Fjalëkalimi duhet të ketë së paku 5 karaktere.';
+            }
+
+            if (password !== confirmPassword) {
+                isValid = false;
+                document.getElementById('register-confirm-password-error').innerText = 'Fjalëkalimet nuk përputhen.';
+            }
+
+            if (isValid) {
+                users.push({ name, email, password });
+                alert('Regjistrimi i suksesshëm! Tani mund të hyni.');
+                toggleForm('login');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absolute Mall - Products</title>
+    <title>Absolute Mall</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -11,114 +11,113 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="logo">
-            <a href="index.html">Absolute Mall</a>
+            <a href="index.html"><img src="foto/absolute.png" alt="logo e absolute mall" width="130px" height="100px"></a>
         </div>
         <nav>
             <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html">Ballina</a></li>
+                <li><a href="products.html">Produktet</a></li>
+                <li><a href="about.html">Rreth Nesh</a></li>
                 <li><a href="login.html">Login</a></li>
-                <li><a href="#" id="cart-icon">Cart (0)</a></li> <!-- Cart link -->
+                <li><a href="#" id="cart-icon">Shporta (0)</a></li> <!-- Cart link -->
             </ul>
         </nav>
     </header>
 
     <main>
-         <!-- Search Bar -->
+        
          <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search for products..." onkeyup="searchProduct(event)">
+            <input type="text" id="search-input" placeholder="Kërkoni produkte..." onkeyup="searchProduct(event)">
             <button onclick="searchProduct()">Search</button>
         </div>
 
-        <!-- Products Section -->
+      
         <section class="product-section">
-            <h2>Our Products</h2>
+            <h2>Produktet tona</h2>
             <div class="product-grid">
-                <div class="product-card" data-name="Smartphone" data-price="500">
-                    <img src="images/phone.jpg" alt="Phone">
-                    <h3>Smartphone</h3>
-                    <p>$500</p>
-                    <button onclick="addToCart('Smartphone', 500)">Add to Cart</button>
-                    <button onclick="buyNow('Smartphone', 500)">Buy Now</button>
+                <div class="product-card" data-name="Keyboard" data-price="500">
+                    <img src="foto/keyboard.png" alt="Phone">
+                    <h3>Tastiera</h3>
+                    <p>500</p>
+                    <button onclick="addToCart('Keyboard', 500)">Shto ne karte</button>
+                    <button onclick="buyNow('Keyboard', 500)">Bli</button>
                 </div>
                 <div class="product-card" data-name="Laptop" data-price="1200">
                     <img src="images/laptop.jpg" alt="Laptop">
                     <h3>Laptop</h3>
-                    <p>$1200</p>
-                    <button onclick="addToCart('Laptop', 1200)">Add to Cart</button>
-                    <button onclick="buyNow('Laptop', 1200)">Buy Now</button>
+                    <p>1200</p>
+                    <button onclick="addToCart('Laptop', 1200)">Shto ne karte</button>
+                    <button onclick="buyNow('Laptop', 1200)">Bli</button>
                 </div>
                 <div class="product-card" data-name="Tablet" data-price="300">
                     <img src="images/tablet.jpg" alt="Tablet">
                     <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button onclick="addToCart('Tablet', 300)">Add to Cart</button>
-                    <button onclick="buyNow('Tablet', 300)">Buy Now</button>
+                    <p>300</p>
+                    <button onclick="addToCart('Tablet', 300)">Shto ne karte</button>
+                    <button onclick="buyNow('Tablet', 300)">Bli</button>
                 </div>
                 <div class="product-card" data-name="Headphones" data-price="100">
                     <img src="images/headphones.jpg" alt="Headphones">
-                    <h3>Headphones</h3>
-                    <p>$100</p>
-                    <button onclick="addToCart('Headphones', 100)">Add to Cart</button>
-                    <button onclick="buyNow('Headphones', 100)">Buy Now</button>
+                    <h3>Kufje</h3>
+                    <p>100</p>
+                    <button onclick="addToCart('Headphones', 100)">Shto ne karte</button>
+                    <button onclick="buyNow('Headphones', 100)">Bli</button>
                 </div>
             </div>
         </section>
 
-        <!-- Black Friday Section -->
+
         <section class="black-friday-section">
-            <h2>Black Friday Special Offers</h2>
+            <h2>Black Friday</h2>
             <div class="product-grid">
                 <div class="product-card">
                     <img src="images/smartwatch.jpg" alt="Smartwatch">
-                    <h3>Smartwatch</h3>
-                    <p><del>$250</del> <span>$150</span></p>
-                    <button onclick="addToCart('Smartwatch', 150)">Add to Cart</button>
-                    <button onclick="buyNow('Smartwatch', 150)">Buy Now</button>
+                    <h3>Orë të mençur</h3>
+                    <p><del>250</del> <span>150</span></p>
+                    <button onclick="addToCart('Smartwatch', 150)">Shto ne karte</button>
+                    <button onclick="buyNow('Smartwatch', 150)">Bli</button>
                 </div>
                 <div class="product-card">
                     <img src="images/earbuds.jpg" alt="Earbuds">
-                    <h3>Earbuds</h3>
-                    <p><del>$100</del> <span>$60</span></p>
-                    <button onclick="addToCart('Earbuds', 60)">Add to Cart</button>
-                    <button onclick="buyNow('Earbuds', 60)">Buy Now</button>
+                    <h3>Airpods</h3>
+                    <p><del>100</del> <span>60</span></p>
+                    <button onclick="addToCart('Earbuds', 60)">Shto ne karte</button>
+                    <button onclick="buyNow('Earbuds', 60)">Bli</button>
                 </div>
                 <div class="product-card">
-                    <img src="images/monitor.jpg" alt="Monitor">
+                    <img src="foto/monitor.png" alt="Monitor">
                     <h3>Monitor</h3>
-                    <p><del>$500</del> <span>$350</span></p>
-                    <button onclick="addToCart('Monitor', 350)">Add to Cart</button>
-                    <button onclick="buyNow('Monitor', 350)">Buy Now</button>
+                    <p><del>500</del> <span>350</span></p>
+                    <button onclick="addToCart('Monitor', 350)">Shto ne karte</button>
+                    <button onclick="buyNow('Monitor', 350)">Bli</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>About Absolute Mall</h3>
-                <p>Discover the best gadgets at unbeatable prices. Shop now!</p>
+                <h3>Absolute Mall</h3>
+                <p>Tek ne, gjithqka më e lirë e më e mirë. Mos mendo dy herë, por bli menjëherë!</p>
             </div>
             <div class="footer-column">
-                <h3>Contact Us</h3>
+                <h3>Kontakti jonë</h3>
                 <p>Email: support@absolutemall.com</p>
-                <p>Phone: +123-456-7890</p>
+                <p>Telefoni: +383 44/48/49 - 123456</p>
             </div>
             <div class="footer-column">
-                <h3>Follow Us</h3>
+                <h3>Rrjetet tona sociale</h3>
                 <ul class="social-links">
-                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i> Platforma X</a></li>
+                    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
                 </ul>                
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Absolute Mall. All rights reserved.</p>
+            <p>&copy; 2024 Absolute Mall. Të drejtat e rezervuara.</p>
         </div>
     </footer>
 </body>

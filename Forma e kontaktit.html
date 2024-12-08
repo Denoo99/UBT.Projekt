@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt Forma</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            padding: 15px;
+        }
+
+        header .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+
+        header .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #successMessage {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="foto/absolute.png" alt="logo e absolute mall" width="130px" height="100px"></a>
+        </div>
+        
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Ballina</a></li>
+                <li><a href="products.html">Produktet</a></li>
+                <li><a href="about.html">Rreth Nesh</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="Forma e kontaktit.html">Kontakti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Kontaktoni Me Ne</h2>
+        <form id="contactForm">
+            <label for="name">Emri:</label>
+            <input type="text" id="name" placeholder="Shkruani emrin tuaj të plotë" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Shkruani email-in tuaj" required>
+            
+            <label for="message">Mesazhi:</label>
+            <textarea id="message" placeholder="Shkruani mesazhin tuaj" required></textarea>
+            
+            <button type="submit">Dërgo</button>
+        </form>
+        <div id="successMessage">Mesazhi u dërgua me sukses!</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Absolute Mall</h3>
+                <p>Tek ne, gjithqka më e lirë e më e mirë. Mos mendo dy herë, por bli menjëherë!</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kontakti jonë</h3>
+                <p>Email: support@absolutemall.com</p>
+                <p>Telefoni: +383 44/48/49 - 123456</p>
+            </div>
+            <div class="footer-column">
+                <h3>Rrjetet tona sociale</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i> Platforma X</a></li>
+                    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>                
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Absolute Mall. Të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            let isValid = true;
+
+            // Name validation
+            if (!name) {
+                alert('Ju lutem shkruani emrin tuaj.');
+                isValid = false;
+            }
+
+            // Email validation
+            if (!email || !validateEmail(email)) {
+                alert('Ju lutem shkruani një email të vlefshëm.');
+                isValid = false;
+            }
+
+            // Message validation
+            if (!message) {
+                alert('Ju lutem shkruani mesazhin tuaj.');
+                isValid = false;
+            }
+
+            // Show success message if all validations pass
+            const successMessage = document.getElementById('successMessage');
+            if (isValid) {
+                successMessage.textContent = 'Mesazhi u dërgua me sukses!';
+                successMessage.style.display = 'block';
+                document.getElementById('contactForm').reset(); // Reset the form
+            } else {
+                successMessage.style.display = 'none'; // Hide success message if validation fails
+            }
+        });
+
+        // Email validation helper function
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>

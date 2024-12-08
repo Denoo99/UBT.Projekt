@@ -8,17 +8,19 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Navbar -->
+    
     <header class="navbar">
         <div class="logo">
             <a href="index.html"><img src="foto/absolute.png" alt="logo e absolute mall" width="130px" height="100px"></a>
         </div>
+        
         <nav>
             <ul class="menu">
                 <li><a href="index.html">Ballina</a></li>
                 <li><a href="products.html">Produktet</a></li>
                 <li><a href="about.html">Rreth Nesh</a></li>
                 <li><a href="login.html">Login</a></li>
+                <li><a href="Forma e kontaktit.html">Kontakti</a></li>
                 <li><a href="#" id="cart-icon">Shporta (0)</a></li> <!-- Cart link -->
             </ul>
         </nav>
@@ -35,32 +37,32 @@
         <section class="product-section">
             <h2>Produktet tona</h2>
             <div class="product-grid">
-                <div class="product-card" data-name="Keyboard" data-price="500">
-                    <img src="foto/keyboard.png" alt="Phone">
-                    <h3>Tastiera</h3>
-                    <p>500</p>
-                    <button onclick="addToCart('Keyboard', 500)">Shto ne karte</button>
+                <div class="product-card" data-name="Tastirë" data-price="500">
+                    <img src="foto/keyboard.png" alt="Keyboard">
+                    <h3>Tastierë</h3>
+                    <p>500€</p>
+                    <button onclick="addToCart('Keyboard', 500)">Shto në kartë</button>
                     <button onclick="buyNow('Keyboard', 500)">Bli</button>
                 </div>
-                <div class="product-card" data-name="Laptop" data-price="1200">
-                    <img src="images/laptop.jpg" alt="Laptop">
-                    <h3>Laptop</h3>
-                    <p>1200</p>
-                    <button onclick="addToCart('Laptop', 1200)">Shto ne karte</button>
+                <div class="product-card" data-name="Iphone" data-price="1200">
+                    <img src="foto/16pro.png" alt="Iphone">
+                    <h3>Iphone 16 Pro</h3>
+                    <p>1200€</p>
+                    <button onclick="addToCart('Laptop', 1200)">Shto në kartë</button>
                     <button onclick="buyNow('Laptop', 1200)">Bli</button>
                 </div>
-                <div class="product-card" data-name="Tablet" data-price="300">
-                    <img src="images/tablet.jpg" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>300</p>
-                    <button onclick="addToCart('Tablet', 300)">Shto ne karte</button>
+                <div class="product-card" data-name="Mikrofon" data-price="300">
+                    <img src="foto/mikrofoni.png" alt="Tablet">
+                    <h3>Mikrofon</h3>
+                    <p>300€</p>
+                    <button onclick="addToCart('Tablet', 300)">Shto në kartë</button>
                     <button onclick="buyNow('Tablet', 300)">Bli</button>
                 </div>
-                <div class="product-card" data-name="Headphones" data-price="100">
-                    <img src="images/headphones.jpg" alt="Headphones">
-                    <h3>Kufje</h3>
-                    <p>100</p>
-                    <button onclick="addToCart('Headphones', 100)">Shto ne karte</button>
+                <div class="product-card" data-name="maus" data-price="100">
+                    <img src="foto/mouse.png" alt="maus">
+                    <h3>Mausi</h3>
+                    <p>100€</p>
+                    <button onclick="addToCart('Headphones', 100)">Shto në kartë</button>
                     <button onclick="buyNow('Headphones', 100)">Bli</button>
                 </div>
             </div>
@@ -71,24 +73,24 @@
             <h2>Black Friday</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="images/smartwatch.jpg" alt="Smartwatch">
-                    <h3>Orë të mençur</h3>
-                    <p><del>250</del> <span>150</span></p>
-                    <button onclick="addToCart('Smartwatch', 150)">Shto ne karte</button>
+                    <img src="foto/iphone.png" alt="iphone pro max">
+                    <h3>Iphone 16 Pro Max</h3>
+                    <p><del>1000€</del> <span>750€</span></p>
+                    <button onclick="addToCart('Smartwatch', 150)">Shto në kartë</button>
                     <button onclick="buyNow('Smartwatch', 150)">Bli</button>
                 </div>
                 <div class="product-card">
-                    <img src="images/earbuds.jpg" alt="Earbuds">
-                    <h3>Airpods</h3>
-                    <p><del>100</del> <span>60</span></p>
-                    <button onclick="addToCart('Earbuds', 60)">Shto ne karte</button>
+                    <img src="foto/laptop.png" alt="laptop">
+                    <h3>Laptop</h3>
+                    <p><del>600€</del> <span>520€</span></p>
+                    <button onclick="addToCart('Earbuds', 60)">Shto në kartë</button>
                     <button onclick="buyNow('Earbuds', 60)">Bli</button>
                 </div>
                 <div class="product-card">
                     <img src="foto/monitor.png" alt="Monitor">
                     <h3>Monitor</h3>
-                    <p><del>500</del> <span>350</span></p>
-                    <button onclick="addToCart('Monitor', 350)">Shto ne karte</button>
+                    <p><del>500€</del> <span>350€</span></p>
+                    <button onclick="addToCart('Monitor', 350)">Shto në kartë</button>
                     <button onclick="buyNow('Monitor', 350)">Bli</button>
                 </div>
             </div>

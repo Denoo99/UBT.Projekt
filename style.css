@@ -46,36 +46,40 @@ body, html {
 }
 
 /* Slider Styles */
+/* General Styles for Sliders */
 .slider-container {
     position: relative;
     max-width: 90%;
-    height: 300px; /* Adjusted height */
+    height: 300px; /* Adjustable height */
     overflow: hidden;
     margin: 30px auto;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .slider {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
-    width: 100%; /* Ensure full width */
-    overflow: hidden; /* Hide any content outside the container */
+    width: 300%; /* 100% per slide */
+    height: 100%;
+    transition: transform 1s ease-in-out; /* Smooth transition for sliding */
 }
 
 .slide {
-    min-width: 100%; /* Ensure each slide takes up the full width */
-    height: 300px; /* Set a fixed height for the images */
-    display: flex;
+    flex: 1; /* Equal width for each slide */
+    display: flex; /* Ensure flex properties apply */
     justify-content: center;
     align-items: center;
 }
 
 .slide img {
-    width: 100%; /* Ensure the image takes up full width */
-    height: 100%;
-    object-fit: cover; /* Makes sure the image scales nicely without distortion */
+    max-width: 250%;  /* Limit the image width to 80% of the slide */
+    max-height: 250%; /* Limit the image height to 80% of the slide */
+    
 }
+
+
+
 
 /* Special Offers Section */
 .special-offers {

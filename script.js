@@ -52,37 +52,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Cart Functionality
-    let cart = [];
-
-    const addToCart = (productName, price) => {
-        const existingProduct = cart.find((item) => item.name === productName);
-        if (existingProduct) {
-            existingProduct.quantity++;
-        } else {
-            cart.push({ name: productName, price, quantity: 1 });
-        }
-        updateCartCount();
-    };
-
-    const buyNow = (productName, price) => {
-        addToCart(productName, price);
-        window.location.href = "cart.html"; 
-    };
-
-    const updateCartCount = () => {
-        const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-        const cartIcon = document.getElementById("cart-icon");
-        if (cartIcon) {
-            cartIcon.innerText = `Shporta (${cartCount})`;
-        }
-    };
-
-    // Attach functions to the global window object for HTML onclick attributes
-    window.addToCart = addToCart;
-    window.buyNow = buyNow;
-});
-
-
-
-

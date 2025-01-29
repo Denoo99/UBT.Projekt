@@ -86,26 +86,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-// JavaScript to cycle through the images inside .slide elements
-const slides = document.querySelectorAll('.slider .slide');
-let currentIndex = 0;
-
-// Function to show the next slide
-function showNextSlide() {
-  // Hide all slides
-  slides.forEach((slide, index) => {
-    slide.style.display = index === currentIndex ? 'block' : 'none';
-  });
-
-  // Move to the next slide
-  currentIndex = (currentIndex + 1) % slides.length;
-}
-
-// Initially, show the first slide
-showNextSlide();
-
-// Change slide every 3 seconds
-setInterval(showNextSlide, 3000);
-

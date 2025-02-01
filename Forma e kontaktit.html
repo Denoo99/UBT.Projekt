@@ -112,7 +112,7 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
+
     <div class="container">
         <h2>Kontaktoni Me Ne</h2>
         <form id="contactForm">
@@ -130,7 +130,7 @@
         <div id="successMessage">Mesazhi u dërgua me sukses!</div>
     </div>
 
-    <!-- Footer -->
+
     <footer>
         <div class="footer-content">
             <div class="footer-column">
@@ -157,10 +157,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent default form submission behavior
+            event.preventDefault(); 
 
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -168,36 +167,36 @@
 
             let isValid = true;
 
-            // Name validation
+           
             if (!name) {
                 alert('Ju lutem shkruani emrin tuaj.');
                 isValid = false;
             }
 
-            // Email validation
+           
             if (!email || !validateEmail(email)) {
                 alert('Ju lutem shkruani një email të vlefshëm.');
                 isValid = false;
             }
 
-            // Message validation
+         
             if (!message) {
                 alert('Ju lutem shkruani mesazhin tuaj.');
                 isValid = false;
             }
 
-            // Show success message if all validations pass
+            
             const successMessage = document.getElementById('successMessage');
             if (isValid) {
                 successMessage.textContent = 'Mesazhi u dërgua me sukses!';
                 successMessage.style.display = 'block';
-                document.getElementById('contactForm').reset(); // Reset the form
+                document.getElementById('contactForm').reset();
             } else {
-                successMessage.style.display = 'none'; // Hide success message if validation fails
+                successMessage.style.display = 'none';
             }
         });
 
-        // Email validation helper function
+      
         function validateEmail(email) {
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);

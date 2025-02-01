@@ -18,7 +18,6 @@ if(!isset($_SESSION['admin_name'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Faqja e Adminit</title>
 
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="styles.css">
    

@@ -1,4 +1,3 @@
-
 body, html {
     margin: 0;
     padding: 0;
@@ -7,7 +6,6 @@ body, html {
     background-color: #f9f9f9;
     color: #333;
 }
-
 
 .navbar {
     display: flex;
@@ -45,7 +43,6 @@ body, html {
     background-color: #007bff;
 }
 
-
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -58,7 +55,6 @@ body, html {
         text-align: center;
     }
 }
-
 
 .slider-container {
     position: relative;
@@ -91,13 +87,11 @@ body, html {
     object-fit: cover;
 }
 
-
 @media (max-width: 768px) {
     .slider-container {
         height: 200px;
     }
 }
-
 
 .special-offers {
     padding: 40px 20px;
@@ -109,7 +103,6 @@ body, html {
     font-size: 2rem;
     margin-bottom: 30px;
 }
-
 
 .offers-grid {
     display: grid;
@@ -132,12 +125,10 @@ body, html {
     transform: translateY(-10px);
 }
 
-
 .special-offers .offer img {
     width: 100%;
     border-radius: 8px;
 }
-
 
 .special-offers .offer-details {
     position: absolute;
@@ -185,7 +176,6 @@ body, html {
     background-color: #0056b3;
 }
 
-
 .stats {
     display: flex;
     justify-content: space-between;
@@ -208,14 +198,6 @@ body, html {
 .stat p {
     font-size: 1rem;
 }
-
-
-.footerrr {
-    background-color: #143b38;
-    color: white;
-    padding: 40px 20px;
-}
-
 
 footer {
     background-color: #143b38; 
@@ -277,7 +259,6 @@ footer {
     margin-top: 20px;
 }
 
-
 .social-links a {
     display: flex; 
     align-items: center; 
@@ -292,8 +273,6 @@ footer {
 .social-links a:hover i {
     color: #007bff; 
 }
-
-
 
 .product-section {
     padding: 40px 20px;
@@ -312,7 +291,6 @@ footer {
     justify-content: center;
 }
 
-
 .product-card {
     background-color: #fff;
     padding: 20px;
@@ -326,7 +304,6 @@ footer {
     object-fit: contain;
     border-radius: 10px;
 }
-
 
 .search-bar {
     display: flex;
@@ -356,7 +333,6 @@ footer {
     background-color: #0056b3;
 }
 
-
 .black-friday-section {
     padding: 40px 20px;
     background-color: #f9f9f9;
@@ -369,11 +345,10 @@ footer {
 }
 
 .black-friday-section .product-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-        gap: 20px;
-        justify-content: center;
-    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+    justify-content: center;
 }
 
 .black-friday-section .product-card {
@@ -426,42 +401,6 @@ footer {
     background-color: #0056b3;
 }
 
-
-.product-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.product-section h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-    gap: 20px;
-    justify-content: center;
-}
-
-
-.product-card {
-    width: 250px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.product-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-
 .about-hero {
     background-image: url('foto/monitor.png'); /* Add a relevant image */
     background-size: cover;
@@ -482,7 +421,6 @@ footer {
     margin: 0 auto;
 }
 
-
 .about-section {
     padding: 40px 20px;
     text-align: center;
@@ -499,7 +437,6 @@ footer {
     max-width: 800px;
     margin: 0 auto;
 }
-
 
 .values-section {
     padding: 40px 20px;
@@ -537,7 +474,6 @@ footer {
     font-size: 1rem;
 }
 
-
 .team-section {
     padding: 40px 20px;
     background-color: #fff;
@@ -573,7 +509,6 @@ footer {
     margin-bottom: 5px;
 }
 
-
 .contact-section {
     padding: 40px 20px;
     text-align: center;
@@ -594,7 +529,7 @@ footer {
     background-color: #003d7a;
 }
 
-
+/* Responsive Media Queries */
 @media (max-width: 1200px) {
     .navbar .menu {
         gap: 15px;
@@ -632,6 +567,14 @@ footer {
     .product-card {
         width: 220px;
     }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row on medium screens */
+    }
+
+    .black-friday-section .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row on medium screens */
+    }
 }
 
 @media (max-width: 768px) {
@@ -661,6 +604,14 @@ footer {
     .team-member {
         max-width: 150px;
     }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+    }
+
+    .black-friday-section .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+    }
 }
 
 @media (max-width: 576px) {
@@ -678,5 +629,13 @@ footer {
 
     .team-member {
         max-width: 120px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 item per row on extra small screens */
+    }
+
+    .black-friday-section .product-grid {
+        grid-template-columns: 1fr; /* 1 item per row on extra small screens */
     }
 }

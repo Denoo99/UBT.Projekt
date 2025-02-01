@@ -307,10 +307,11 @@ footer {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
     gap: 20px;
     justify-content: center;
 }
+
 
 .product-card {
     background-color: #fff;
@@ -368,10 +369,11 @@ footer {
 }
 
 .black-friday-section .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+        gap: 20px;
+        justify-content: center;
+    
 }
 
 .black-friday-section .product-card {
@@ -436,11 +438,12 @@ footer {
 }
 
 .product-grid {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
     gap: 20px;
-    flex-wrap: nowrap;
+    justify-content: center;
 }
+
 
 .product-card {
     width: 250px;

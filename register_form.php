@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register form</title>
+   <title>Absolute Mall</title>
 
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="styles.css">
@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
 <div class="form-container">
 
    <form action="" method="post">
-      <h3>register now</h3>
+      <h3>Regjistrohu tani</h3>
       <?php
       if(isset($error)){
          foreach($error as $error){
@@ -83,7 +83,7 @@ if(isset($_POST['submit'])){
          <option value="admin">admin</option>
       </select>
       <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>Keni nje account? <a href="login_form.php">Kyçu tani</a></p>
+      <p>Keni nje llogari? <a href="login_form.php">Kyçu tani</a></p>
    </form>
 
 </div>

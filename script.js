@@ -97,7 +97,79 @@ function moveSlide(direction) {
     showSlide(currentIndex);
 }
 
-// Automatically change slides every 3 seconds
+
 setInterval(() => {
-    moveSlide(1); // Move to the next slide
-}, 3000); // 3000 milliseconds = 3 seconds
+    moveSlide(1);
+}, 3000); 
+
+
+
+
+
+
+function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
+
+function getCookie(name) {
+    return document.cookie.split('; ').reduce((r, c) => {
+        const [key, val] = c.split('=');
+        return key === name ? decodeURIComponent(val) : r;
+    }, '');
+}
+
+function checkCookie() {
+    const userConsent = getCookie('cookieConsent');
+    const themePreference = getCookie('themePreference');
+    const languagePreference = getCookie('languagePreference');
+
+    if (userConsent) {
+        document.getElementById('cookie-consent').style.display = 'none'; // Hide the banner if cookie exists
+    } else {
+        document.getElementById('cookie-consent').style.display = 'block'; // Show the cookie consent banner
+    }
+
+    // Apply theme preference if it exists
+    if (themePreference) {
+        document.body.className = themePreference; // Apply the theme class
+    }
+
+    // Apply language preference if it exists
+    if (languagePreference) {
+        alert('Language preference set to: ' + languagePreference);
+    }
+}
+
+window.onload = function() {
+    checkCookie();
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+    if (acceptCookiesButton) {
+        acceptCookiesButton.onclick = function() {
+            setCookie('cookieConsent', 'accepted', 7); // Set cookie for 7 days
+            document.getElementById('cookie-consent').style.display = 'none'; // Hide the banner
+        };
+    }
+
+    // Example: Set theme preference
+    const themeButton = document.getElementById('set-theme');
+    if (themeButton) {
+        themeButton.onclick = function() {
+            const theme = prompt('Enter theme (light/dark):');
+            if (theme === 'light' || theme === 'dark') {
+                setCookie('themePreference', theme, 30); // Set cookie for 30 days
+                document.body.className = theme; // Apply the theme class
+            }
+        };
+    }
+
+    // Example: Set language preference
+    const languageButton = document.getElementById('set-language');
+    if (languageButton) {
+        languageButton.onclick = function() {
+            const language = prompt('Enter your preferred language:');
+            setCookie('languagePreference', language, 30); // Set cookie for 30 days
+            alert('Language preference set to: ' + language);
+        };
+    }
+};

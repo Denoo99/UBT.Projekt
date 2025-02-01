@@ -638,3 +638,38 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
+
+
+
+
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #143b38;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+}
+
+.cookie-consent button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cookie-consent button:hover {
+    background-color: #0056b3;
+}

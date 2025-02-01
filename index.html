@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absolute Mall</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -25,7 +26,6 @@
         </nav>
     </header>
 
-   
     <div class="slider-container new-slider">
         <div class="slider">
             <div class="slide">
@@ -42,61 +42,59 @@
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
     
-
-<section class="special-offers">
-    <h2>Oferta Speciale</h2>
-    <div class="offers-grid">
-        <div class="offer">
-            <img src="foto/monitor.png" alt="1">
-            <div class="offer-details">
-                <h3>Monitor</h3>
-                <p>Zbritje deri në 20%</p>
-                <button>Bli tani</button>
+    <section class="special-offers">
+        <h2>Oferta Speciale</h2>
+        <div class="offers-grid">
+            <div class="offer">
+                <img src="foto/monitor.png" alt="1">
+                <div class="offer-details">
+                    <h3>Monitor</h3>
+                    <p>Zbritje deri në 20%</p>
+                    <button>Bli tani</button>
+                </div>
+            </div>
+            <div class="offer">
+                <img src="foto/mouse.png" alt="2">
+                <div class="offer-details">
+                    <h3>Mause</h3>
+                    <p>Zbritje deri në 10%</p>
+                    <button>Bli tani</button>
+                </div>
+            </div>
+            <div class="offer">
+                <img src="foto/keyboard.png" alt="3">
+                <div class="offer-details">
+                    <h3>Tastierë</h3>
+                    <p>Zbritje deri në 50%</p>
+                    <button>Bli tani</button>
+                </div>
+            </div>
+            <div class="offer">
+                <img src="foto/mini.png" alt="4">
+                <div class="offer-details">
+                    <h3>Mini Console</h3>
+                    <p>Zbritje deri në 65%</p>
+                    <button>Bli tani</button>
+                </div>
+            </div>
+            <div class="offer">
+                <img src="foto/mikrofoni.png" alt="5">
+                <div class="offer-details">
+                    <h3>Mikrofon</h3>
+                    <p>I pari i këtij lloji në Kosovë</p>
+                    <button>Bli tani</button>
+                </div>
+            </div>
+            <div class="offer">
+                <img src="foto/16pro.png" alt="6">
+                <div class="offer-details">
+                    <h3>Iphone 16 Pro</h3>
+                    <p>Nxito dhe bëje tënden</p>
+                    <button>Bli tani</button>
+                </div>
             </div>
         </div>
-        <div class="offer">
-            <img src="foto/mouse.png" alt="2">
-            <div class="offer-details">
-                <h3>Mause</h3>
-                <p>Zbritje deri në 10%</p>
-                <button>Bli tani</button>
-            </div>
-        </div>
-        <div class="offer">
-            <img src="foto/keyboard.png" alt="3">
-            <div class="offer-details">
-                <h3>Tastierë</h3>
-                <p>Zbritje deri në 50%</p>
-                <button>Bli tani</button>
-            </div>
-        </div>
-        <div class="offer">
-            <img src="foto/mini.png" alt="4">
-            <div class="offer-details">
-                <h3>Mini Console</h3>
-                <p>Zbritje deri në 65%</p>
-                <button>Bli tani</button>
-            </div>
-        </div>
-        <div class="offer">
-            <img src="foto/mikrofoni.png" alt="5">
-            <div class="offer-details">
-                <h3>Mikrofon</h3>
-                <p>I pari i këtij lloji në Kosovë</p>
-                <button>Bli tani</button>
-            </div>
-        </div>
-        <div class="offer">
-            <img src="foto/16pro.png" alt="6">
-            <div class="offer-details">
-                <h3>Iphone 16 Pro</h3>
-                <p>Nxito dhe bëje tënden</p>
-                <button>Bli tani</button>
-            </div>
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <section class="stats">
         <div class="stat">
@@ -127,9 +125,9 @@
             <div class="footer-column">
                 <h3>Rrjetet tona sociale</h3>
                 <ul class="social-links">
-                    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i> Platforma X</a></li>
-                    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://x.com/?lang=en">Platforma X</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
                 </ul>                
             </div>
         </div>
@@ -137,5 +135,11 @@
             <p>&copy; 2024 Absolute Mall. Të drejtat e rezervuara.</p>
         </div>
     </footer>
+
+    <div id="cookie-consent" class="cookie-consent">
+        <p>Ky website ka cookies per te ruajtur privatesine tuaj dhe per te dhene nje eksperience me te mire per ju.
+        <button id="accept-cookies">Prano Cookies</button></p>
+    </div>
+
 </body>
 </html>

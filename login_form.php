@@ -1,42 +1,17 @@
 <?php
-
 @include 'config.php';
-
 session_start();
 
-if(isset($_POST['submit'])){
+require_once 'Database.php'; // Include the Database class
+require_once 'User .php'; // Include the User class
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
+$db = new Database();
+$conn = $db->getConnection();
+$user = new User($conn);
 
-   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
-
-   $result = mysqli_query($conn, $select);
-
-   if(mysqli_num_rows($result) > 0){
-
-      $row = mysqli_fetch_array($result);
-
-      if($row['user_type'] == 'admin'){
-
-         $_SESSION['admin_name'] = $row['name'];
-         header('location:admin_page.php');
-
-      }elseif($row['user_type'] == 'user'){
-
-         $_SESSION['user_name'] = $row['name'];
-         header('location:user_page.php');
-
-      }
-     
-   }else{
-      $error[] = 'incorrect email or password!';
-   }
-
-};
+if (isset($_POST['submit'])) {
+    $error = $user->login($_POST['email'], $_POST['password']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +20,12 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Absolute Mall</title>
-
+   <title>Login</title>
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
+
 <header class="navbar">
         <div class="logo">
             <a href="index.html"><img src="foto/absolute.png" alt="logo e absolute mall" width="130px" height="100px"></a>
@@ -62,30 +36,24 @@ if(isset($_POST['submit'])){
                 <li><a href="index.html">Ballina</a></li>
                 <li><a href="products.html">Produktet</a></li>
                 <li><a href="about.html">Rreth Nesh</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login_form.php">Login</a></li>
                 <li><a href="Forma e kontaktit.html">Kontakti</a></li>
             </ul>
         </nav>
     </header>
-   
+
+
 <div class="form-container">
-
    <form action="" method="post">
-      <h3>Kyçu tani</h3>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
-         };
-      };
-      ?>
-      <input type="email" name="email" required placeholder="Vendos emailin">
-      <input type="password" name="password" required placeholder="Vendos passwordin">
-      <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>Nuk ke llogari? <a href="register_form.php">Regjistrohu tani</a></p>
+      <h3>Log In</h3>
+      <?php if (isset($error)) { echo '<span class="error-msg">'.$error.'</span>'; } ?>
+      <input type="email" name="email" required placeholder="Enter your email">
+      <input type="password" name="password" required placeholder="Enter your password">
+      <input type="submit" name="submit" value="Login Now" class="form-btn">
+      <p>Don't have an account? <a href="register_form.php">Register now</a></p>
    </form>
-
 </div>
+
 
 <footer>
         <div class="footer-content">
@@ -101,11 +69,10 @@ if(isset($_POST['submit'])){
             <div class="footer-column">
                 <h3>Rrjetet tona sociale</h3>
                 <ul class="social-links">
-                    <li><a href="https://www.facebook.com/">Facebook</a></li>
-                    <li><a href="https://x.com/?lang=en">Platforma X</a></li>
-                    <li><a href="https://www.instagram.com/">Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
-                </ul>
+                    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i> Platforma X</a></li>
+                    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>                
             </div>
         </div>
         <div class="footer-bottom">

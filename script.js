@@ -68,3 +68,36 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.addEventListener("keyup", searchProduct);
     }
 });
+
+
+
+
+
+
+
+
+
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    const slider = document.querySelector('.slider');
+    const offset = -index * (100 / totalSlides);
+    slider.style.transform = `translateX(${offset}%)`;
+}
+
+function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) {
+        currentIndex = totalSlides - 1;
+    } else if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+    }
+    showSlide(currentIndex);
+}
+
+// Automatically change slides every 3 seconds
+setInterval(() => {
+    moveSlide(1); // Move to the next slide
+}, 3000); // 3000 milliseconds = 3 seconds

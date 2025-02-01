@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        if (!searchInput || !productGrid) return;
+
         const searchQuery = normalizeString(searchInput.value);
         const productCards = document.querySelectorAll(".product-card");
         let matchesFound = false;
@@ -67,109 +69,98 @@ document.addEventListener("DOMContentLoaded", () => {
     if (searchInput) {
         searchInput.addEventListener("keyup", searchProduct);
     }
-});
 
-
-
-
-
-
-
-
-
-let currentIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
-
-function showSlide(index) {
+    // Slideshow Fix
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
     const slider = document.querySelector('.slider');
-    const offset = -index * (100 / totalSlides);
-    slider.style.transform = `translateX(${offset}%)`;
-}
 
-function moveSlide(direction) {
-    currentIndex += direction;
-    if (currentIndex < 0) {
-        currentIndex = totalSlides - 1;
-    } else if (currentIndex >= totalSlides) {
-        currentIndex = 0;
-    }
-    showSlide(currentIndex);
-}
+    if (slides.length > 0 && slider) {
+        const totalSlides = slides.length;
 
+        function showSlide(index) {
+            const offset = -index * (100 / totalSlides);
+            slider.style.transform = `translateX(${offset}%)`;
+        }
 
-setInterval(() => {
-    moveSlide(1);
-}, 3000); 
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+            showSlide(currentIndex);
+        }
 
-
-
-
-
-
-function setCookie(name, value, days) {
-    const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-}
-
-function getCookie(name) {
-    return document.cookie.split('; ').reduce((r, c) => {
-        const [key, val] = c.split('=');
-        return key === name ? decodeURIComponent(val) : r;
-    }, '');
-}
-
-function checkCookie() {
-    const userConsent = getCookie('cookieConsent');
-    const themePreference = getCookie('themePreference');
-    const languagePreference = getCookie('languagePreference');
-
-    if (userConsent) {
-        document.getElementById('cookie-consent').style.display = 'none'; // Hide the banner if cookie exists
-    } else {
-        document.getElementById('cookie-consent').style.display = 'block'; // Show the cookie consent banner
+        setInterval(() => {
+            moveSlide(1);
+        }, 3000);
     }
 
-    // Apply theme preference if it exists
-    if (themePreference) {
-        document.body.className = themePreference; // Apply the theme class
+    // Cookie Consent Fix
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
     }
 
-    // Apply language preference if it exists
-    if (languagePreference) {
-        alert('Language preference set to: ' + languagePreference);
+    function getCookie(name) {
+        return document.cookie.split('; ').reduce((r, c) => {
+            const [key, val] = c.split('=');
+            return key === name ? decodeURIComponent(val) : r;
+        }, '');
     }
-}
 
-window.onload = function() {
+    function checkCookie() {
+        const userConsent = getCookie('cookieConsent');
+        const themePreference = getCookie('themePreference');
+        const languagePreference = getCookie('languagePreference');
+        const cookieBanner = document.getElementById('cookie-consent');
+
+        if (cookieBanner) {
+            if (userConsent) {
+                cookieBanner.style.display = 'none';
+            } else {
+                cookieBanner.style.display = 'block';
+            }
+        }
+
+        if (themePreference) {
+            document.body.className = themePreference;
+        }
+
+        if (languagePreference) {
+            alert('Language preference set to: ' + languagePreference);
+        }
+    }
+
     checkCookie();
+
     const acceptCookiesButton = document.getElementById('accept-cookies');
     if (acceptCookiesButton) {
-        acceptCookiesButton.onclick = function() {
-            setCookie('cookieConsent', 'accepted', 7); // Set cookie for 7 days
-            document.getElementById('cookie-consent').style.display = 'none'; // Hide the banner
+        acceptCookiesButton.onclick = function () {
+            setCookie('cookieConsent', 'accepted', 7);
+            document.getElementById('cookie-consent').style.display = 'none';
         };
     }
 
-    // Example: Set theme preference
     const themeButton = document.getElementById('set-theme');
     if (themeButton) {
-        themeButton.onclick = function() {
+        themeButton.onclick = function () {
             const theme = prompt('Enter theme (light/dark):');
             if (theme === 'light' || theme === 'dark') {
-                setCookie('themePreference', theme, 30); // Set cookie for 30 days
-                document.body.className = theme; // Apply the theme class
+                setCookie('themePreference', theme, 30);
+                document.body.className = theme;
             }
         };
     }
 
-    // Example: Set language preference
     const languageButton = document.getElementById('set-language');
     if (languageButton) {
-        languageButton.onclick = function() {
+        languageButton.onclick = function () {
             const language = prompt('Enter your preferred language:');
-            setCookie('languagePreference', language, 30); // Set cookie for 30 days
+            setCookie('languagePreference', language, 30);
             alert('Language preference set to: ' + language);
         };
     }
-};
+});

@@ -9,5 +9,5 @@ header('location:login_form.php')
 ?>
 
 <script>
-    window.history.forward();
+    window.history.back();
    </script>

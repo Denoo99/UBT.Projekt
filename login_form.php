@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="styles.css">
    <script>
-    window.history.forward();
+    window.history.back();
    </script>
 </head>
 <body>

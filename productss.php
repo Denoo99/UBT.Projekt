@@ -9,7 +9,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absolute Mall - Produktet</title>
+    <title>Absolute Mall</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -35,7 +35,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <main>
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Kërkoni produkte..." onkeyup="searchProduct(event)">
-            <button onclick="searchProduct()">Search</button>
+            <button onclick="searchProduct()">Gjej produktin</button>
         </div>
 
         <section class="product-section">

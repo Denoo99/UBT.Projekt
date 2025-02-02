@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Register</title>
+   <title>Absolute Mall</title>
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="styles.css">
 </head>
@@ -29,15 +29,15 @@ if (isset($_POST['submit'])) {
    <form action="" method="post">
       <h3>Regjistrohu tani</h3>
       <?php if (isset($error)) { echo '<span class="error-msg">'.$error.'</span>'; } ?>
-      <input type="text" name="name" required placeholder="Enter your name">
-      <input type="email" name="email" required placeholder="Enter your email">
-      <input type="password" name="password" required placeholder="Enter your password">
-      <input type="password" name="cpassword" required placeholder="Confirm your password">
+      <input type="text" name="name" required placeholder="Vendos emrin">
+      <input type="email" name="email" required placeholder="Vendos emailin">
+      <input type="password" name="password" required placeholder="Vendos passwordin">
+      <input type="password" name="cpassword" required placeholder="Konfirmo passwordin">
       <select name="user_type">
          <option value="user">User </option>
          <option value="admin">Admin</option>
       </select>
-      <input type="submit" name="submit" value="Register Now" class="form-btn">
+      <input type="submit" name="submit" value="Regjistrohu tani" class="form-btn">
       <p>Keni nje llogari? <a href="login_form.php">Kyçu tani</a></p>
    </form>
 </div>

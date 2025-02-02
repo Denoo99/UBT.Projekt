@@ -34,7 +34,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <main>
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Kërkoni produkte..." onkeyup="searchProduct(event)">
-            <button onclick="searchProduct()">Search</button>
+            <button onclick="searchProduct()">Gjej Produktin</button>
         </div>
 
         <section class="product-section">

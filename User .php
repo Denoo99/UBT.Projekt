@@ -24,7 +24,7 @@ class User {
                 header('location:user_page.php');
             }
         } else {
-            return 'Incorrect email or password!';
+            return 'Emaili ose passwordi jo i sakte';
         }
     }
 
@@ -37,13 +37,13 @@ class User {
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            return 'User  already exists!';
+            return 'Ky user ekzistonn!';
         } else {
             $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES(?, ?, ?, ?)";
             $stmt = $this->conn->prepare($insert);
             $stmt->bind_param("ssss", $name, $email, $pass, $user_type);
             $stmt->execute();
-            return 'Registration successful!';
+            return 'Regjistrimi i suksesshem!';
         }
     }
 }

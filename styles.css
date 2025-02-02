@@ -15,8 +15,8 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   padding: 20px;
-   padding-bottom: 60px;
+   padding: 2rem; 
+   padding-bottom: 6rem;
 }
 
 .container .content {
@@ -24,7 +24,7 @@
 }
 
 .container .content h3 {
-   font-size: 30px;
+   font-size: 2rem;
    color: #333;
 }
 
@@ -32,11 +32,11 @@
    background: crimson;
    color: #fff;
    border-radius: 5px;
-   padding: 0 15px;
+   padding: 0 1rem; 
 }
 
 .container .content h1 {
-   font-size: 50px;
+   font-size: 3rem; 
    color: #333;
 }
 
@@ -45,17 +45,17 @@
 }
 
 .container .content p {
-   font-size: 25px;
-   margin-bottom: 20px;
+   font-size: 1.5rem; 
+   margin-bottom: 1.5rem; 
 }
 
 .container .content .btn {
    display: inline-block;
-   padding: 10px 30px;
-   font-size: 20px;
+   padding: 0.5rem 2rem; 
+   font-size: 1.25rem; 
    background: #333;
    color: #fff;
-   margin: 0 5px;
+   margin: 0 0.5rem; 
    text-transform: capitalize;
 }
 
@@ -68,33 +68,34 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   padding: 20px;
-   padding-bottom: 60px;
+   padding: 2rem; 
+   padding-bottom: 6rem; 
    background: #eee;
 }
 
 .form-container form {
-   padding: 20px;
+   padding: 2rem; 
    border-radius: 5px;
    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
    background: #fff;
    text-align: center;
-   width: 500px;
+   width: 100%; 
+   max-width: 500px; 
 }
 
 .form-container form h3 {
-   font-size: 30px;
+   font-size: 2rem; 
    text-transform: uppercase;
-   margin-bottom: 10px;
+   margin-bottom: 1rem; 
    color: #333;
 }
 
 .form-container form input,
 .form-container form select {
    width: 100%;
-   padding: 10px 15px;
-   font-size: 17px;
-   margin: 8px 0;
+   padding: 0.5rem 1rem; 
+   font-size: 1rem; 
+   margin: 0.5rem 0; 
    background: #eee;
    border-radius: 5px;
 }
@@ -107,7 +108,7 @@
    background: #fbd0d9;
    color: crimson;
    text-transform: capitalize;
-   font-size: 20px;
+   font-size: 1.25rem; 
    cursor: pointer;
 }
 
@@ -117,8 +118,8 @@
 }
 
 .form-container form p {
-   margin-top: 10px;
-   font-size: 20px;
+   margin-top: 1rem; 
+   font-size: 1.25rem; 
    color: #333;
 }
 
@@ -127,36 +128,36 @@
 }
 
 .form-container form .error-msg {
-   margin: 10px 0;
+   margin: 1rem 0; 
    display: block;
    background: crimson;
    color: #fff;
    border-radius: 5px;
-   font-size: 20px;
-   padding: 10px;
+   font-size: 1.25rem; 
+   padding: 1rem; 
 }
 
 @media (max-width: 1200px) {
    .container .content h1 {
-       font-size: 40px;
+       font-size: 2.5rem; 
    }
 
    .container .content p {
-       font-size: 20px;
+       font-size: 1.25rem; 
    }
 
    .form-container form {
-       width: 400px;
+       width: 90%; 
    }
 }
 
 @media (max-width: 992px) {
    .container .content h1 {
-       font-size: 35px;
+       font-size: 2.25rem; 
    }
 
    .container .content p {
-       font-size: 18px;
+       font-size: 1.125rem; 
    }
 
    .form-container form {
@@ -166,61 +167,61 @@
 
 @media (max-width: 768px) {
    .container .content h1 {
-       font-size: 30px;
+       font-size: 2rem; 
    }
 
    .container .content p {
-       font-size: 16px;
+       font-size: 1rem;
    }
 
    .form-container form {
-       width: 90%;
-       padding: 15px;
+       width: 90%; 
+       padding: 1rem; 
    }
 
    .form-container form h3 {
-       font-size: 25px;
+       font-size: 1.5rem;
    }
 
    .form-container form .form-btn {
-       font-size: 18px;
+       font-size: 1rem; 
    }
 
    .form-container form p {
-       font-size: 18px;
+       font-size: 1rem; 
    }
 
    .form-container form .error-msg {
-       font-size: 18px;
+       font-size: 1rem;
    }
 }
 
 @media (max-width: 576px) {
    .container .content h1 {
-       font-size: 25px;
+       font-size: 1.75rem; 
    }
 
    .container .content p {
-       font-size: 14px;
+       font-size: 0.875rem;
    }
 
    .form-container form {
-       width: 100%;
+       width: 100%; 
    }
 
    .form-container form h3 {
-       font-size: 22px;
+       font-size: 1.5rem; 
    }
 
    .form-container form .form-btn {
-       font-size: 16px;
+       font-size: 0.875rem; 
    }
 
    .form-container form p {
-       font-size: 16px;
+       font-size: 0.875rem; 
    }
 
    .form-container form .error-msg {
-       font-size: 16px;
+       font-size: 0.875rem; 
    }
 }

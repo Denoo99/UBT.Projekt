@@ -32,7 +32,7 @@ if(!isset($_SESSION['user_name'])){
         <nav>
             <ul class="menu">
                 <li><a href="index.html">Ballina</a></li>
-                <li><a href="products.html">Produktet</a></li>
+                <li><a href="products.php">Produktet</a></li>
                 <li><a href="about.html">Rreth Nesh</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="Forma e kontaktit.html">Kontakti</a></li>

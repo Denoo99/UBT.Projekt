@@ -45,12 +45,12 @@ if (isset($_POST['submit'])) {
 
 <div class="form-container">
    <form action="" method="post">
-      <h3>Kyçu ne Web</h3>
+      <h3>Kyçu në Website</h3>
       <?php if (isset($error)) { echo '<span class="error-msg">'.$error.'</span>'; } ?>
       <input type="email" name="email" required placeholder="Vendos emailin">
       <input type="password" name="password" required placeholder="Vendos passwordin">
       <input type="submit" name="submit" value="Hyni tani" class="form-btn">
-      <p>Nuk ke llogari? <a href="register_form.php">Hap nje tani</a></p>
+      <p>Nuk ke llogari? <a href="register_form.php">Hap një tani</a></p>
    </form>
 </div>
 

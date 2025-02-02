@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
             window.history.pushState(null, '', window.location.href);
         };
 
-        // Optionally, you can also clear the session storage
+        // Clear session storage
         window.onload = function() {
             sessionStorage.clear();
         };

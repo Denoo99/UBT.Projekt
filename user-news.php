@@ -1,12 +1,13 @@
 <?php
+
 @include 'config.php';
+
 session_start();
 
-
-if (!isset($_SESSION['admin_name'])) {
-    header('location:login_form.php');
-    exit();
+if(!isset($_SESSION['user_name'])){
+   header('location:login_form.php');
 }
+
 ?>
 
 
@@ -106,7 +107,8 @@ if (!isset($_SESSION['admin_name'])) {
             <li><a href="products.php">Produktet</a></li>
             <li><a href="about.html">Rreth Nesh</a></li>
             <li><a href="Forma e kontaktit.html">Kontakti</a></li>
-            
+            <li><a href="user-news.html">User news</a></li>
+            <li><a href="logout.php">Log Out</a></li>
         </ul>
         </nav>
     </header>

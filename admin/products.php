@@ -52,12 +52,6 @@ $products = mysqli_query($conn, "SELECT * FROM products");
             </div>
         </section>
 
-        <section class="black-friday-section">
-            <h2>Black Friday</h2>
-            <div class="product-grid">
-                <!-- You can add specific Black Friday products here if needed -->
-            </div>
-        </section>
     </main>
 
     <footer>

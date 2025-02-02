@@ -34,6 +34,7 @@ if(!isset($_SESSION['admin_name'])){
                 <li><a href="index.html">Ballina</a></li>
                 <li><a href="products.php">Produktet</a></li>
                 <li><a href="about.html">Rreth Nesh</a></li>
+                <li><a href="login.html">Login</a></li>
                 <li><a href="Forma e kontaktit.html">Kontakti</a></li>
                 <li><a href="admin_dashboard.php">Admin Dashboard</a></li>
             </ul>

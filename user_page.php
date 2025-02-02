@@ -48,5 +48,31 @@ if(!isset($_SESSION['user_name'])){
    </div>
 </div>
 
+
+<footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Absolute Mall</h3>
+                <p>Tek ne, gjithqka më e lirë e më e mirë. Mos mendo dy herë, por bli menjëherë!</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kontakti jonë</h3>
+                <p>Email: support@absolutemall.com</p>
+                <p>Telefoni: +383 44/48/49 - 123456</p>
+            </div>
+            <div class="footer-column">
+                <h3>Rrjetet tona sociale</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://x.com/?lang=en">Platforma X</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                </ul>                
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Absolute Mall. Të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

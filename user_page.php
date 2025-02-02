@@ -33,7 +33,7 @@ if(!isset($_SESSION['user_name'])){
             <li><a href="productss.php">Produktet</a></li>
             <li><a href="aboutt.html">Rreth Nesh</a></li>
             <li><a href="Forma e kontaktitt.html">Kontakti</a></li>
-            <li><a href=".php">User news</a></li>
+            <li><a href="user-news.html">User news</a></li>
             <li><a href="logout.php">Log Out</a></li>
         </ul>
         </nav>

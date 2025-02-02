@@ -28,13 +28,14 @@ if(!isset($_SESSION['user_name'])){
         </div>
         
         <nav>
-            <ul class="menu">
-                <li><a href="index.html">Ballina</a></li>
-                <li><a href="products.php">Produktet</a></li>
-                <li><a href="about.html">Rreth Nesh</a></li>
-                <li><a href="Forma e kontaktit.html">Kontakti</a></li>
-                <li><a href="logout.php">Log Out</a></li>
-            </ul>
+        <ul class="menu">
+            <li><a href="indexx.html">Ballina</a></li>
+            <li><a href="productss.php">Produktet</a></li>
+            <li><a href="aboutt.html">Rreth Nesh</a></li>
+            <li><a href="Forma e kontaktitt.html">Kontakti</a></li>
+            <li><a href=".php">User news</a></li>
+            <li><a href="logout.php">Log Out</a></li>
+        </ul>
         </nav>
     </header>
 <div class="container">

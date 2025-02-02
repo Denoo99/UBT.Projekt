@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 <body>
 <div class="form-container">
    <form action="" method="post">
-      <h3>Register Now</h3>
+      <h3>Regjistrohu tani</h3>
       <?php if (isset($error)) { echo '<span class="error-msg">'.$error.'</span>'; } ?>
       <input type="text" name="name" required placeholder="Enter your name">
       <input type="email" name="email" required placeholder="Enter your email">
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
          <option value="admin">Admin</option>
       </select>
       <input type="submit" name="submit" value="Register Now" class="form-btn">
-      <p>Already have an account? <a href="login_form.php">Log in now</a></p>
+      <p>Keni nje llogari? <a href="login_form.php">Kyçu tani</a></p>
    </form>
 </div>
 </body>

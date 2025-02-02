@@ -45,12 +45,12 @@ if (isset($_POST['submit'])) {
 
 <div class="form-container">
    <form action="" method="post">
-      <h3>Log In</h3>
+      <h3>Kyçu ne Web</h3>
       <?php if (isset($error)) { echo '<span class="error-msg">'.$error.'</span>'; } ?>
       <input type="email" name="email" required placeholder="Enter your email">
       <input type="password" name="password" required placeholder="Enter your password">
       <input type="submit" name="submit" value="Login Now" class="form-btn">
-      <p>Don't have an account? <a href="register_form.php">Register now</a></p>
+      <p>Nuk ke llogari? <a href="register_form.php">Hap nje tani</a></p>
    </form>
 </div>
 

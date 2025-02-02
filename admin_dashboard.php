@@ -38,18 +38,21 @@ if (isset($_POST['add_product'])) {
         echo "Sorry, your file was not uploaded.";
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            // Store only the relative path in the database
-            $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$target_file')";
-            mysqli_query($conn, $insert);
-            
-            $admin_name = $_SESSION['admin_name'];
-            $product_id = mysqli_insert_id($conn);
-            $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'added')";
-            mysqli_query($conn, $log_change);
-            
-            // Redirect to the same page to prevent form resubmission
-            header('Location: admin_dashboard.php');
-            exit();
+            // Store only the filename in the database
+            $image_filename = basename($_FILES["image"]["name"]);
+            $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$image_filename')";
+            if (mysqli_query($conn, $insert)) {
+                $admin_name = $_SESSION['admin_name'];
+                $product_id = mysqli_insert_id($conn);
+                $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'added')";
+                mysqli_query($conn, $log_change);
+                
+                // Redirect to the same page to prevent form resubmission
+                header('Location: admin_dashboard.php');
+                exit();
+            } else {
+                echo "Error: " . mysqli_error($conn);
+            }
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -71,16 +74,18 @@ if (isset($_POST['remove_product'])) {
         
         // Then, delete the product
         $delete = "DELETE FROM products WHERE id = '$product_id'";
-        mysqli_query($conn, $delete);
-        
-        $admin_name = $_SESSION['admin_name'];
-        // Log the change only if the product was successfully deleted
-        $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'removed')";
-        mysqli_query($conn, $log_change);
-        
-        // Redirect to the same page to prevent form resubmission
-        header('Location: admin_dashboard.php');
-        exit();
+        if (mysqli_query($conn, $delete)) {
+            $admin_name = $_SESSION['admin_name'];
+            // Log the change only if the product was successfully deleted
+            $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'removed')";
+            mysqli_query($conn, $log_change);
+            
+            // Redirect to the same page to prevent form resubmission
+            header('Location: admin_dashboard.php');
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
     } else {
         echo "Product does not exist.";
     }
@@ -95,7 +100,8 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title <link rel="stylesheet" href="style.css">
+    <title>Admin Dashboard</title> <!-- Fixed closing tag -->
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -224,7 +230,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
             <td><?php echo $product['id']; ?></td>
             <td><?php echo $product['name']; ?></td>
             <td><?php echo $product['price']; ?>€</td>
-            <td><img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" width="50"></td>
+            <td><img src="<?php echo $target_dir . $product['image']; ?>" alt="<?php echo $product['name']; ?>" width="50"></td>
             <td>
                 <form action="" method="post" style="display:inline;">
                     <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
@@ -238,7 +244,8 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <h2>Product Change Log</h2>
     <table>
         <tr>
-            <th>Product ID</th <th>Admin Name</th>
+            <th>Product ID</th>
+            <th>Admin Name</th> <!-- Fixed header -->
             <th>Action</th>
             <th>Change Time</th>
         </tr>

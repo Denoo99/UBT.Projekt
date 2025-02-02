@@ -82,14 +82,6 @@
         button:hover {
             background-color: #0056b3;
         }
-
-        #successMessage {
-            text-align: center;
-            color: green;
-            font-weight: bold;
-            margin-top: 20px;
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -111,7 +103,7 @@
 
     <div class="container">
         <h2>Kontaktoni Me Ne</h2>
-        <form id="contactForm" method="POST" action="submit_contact.php">
+        <form id="contactForm">
             <label for="name">Emri:</label>
             <input type="text" id="name" name="name" placeholder="Shkruani emrin tuaj të plotë" required>
             
@@ -123,7 +115,6 @@
             
             <button type="submit">Dërgo</button>
         </form>
-        <div id="successMessage">Mesazhi u dërgua me sukses!</div>
     </div>
 
     <footer>
@@ -153,8 +144,21 @@
 
     <script>
         document.getElementById('contactForm').addEventListener('submit', function (event) {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.style.display = 'block';
+            event.preventDefault(); 
+
+            const formData = new FormData(this); 
+
+            fetch('submit_contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Form submitted successfully');
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
     </script>
 </body>

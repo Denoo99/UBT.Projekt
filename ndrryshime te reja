@@ -1,0 +1,36 @@
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $price = mysqli_real_escape_string($conn, $_POST['price']);
+
+    $target_dir = "admin/uploads/";
+    $target_dir = "uploads/"; // Store only the relative path
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+@@ -38,6 +38,7 @@
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            // Store only the relative path in the database
+            $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$target_file')";
+            mysqli_query($conn, $insert);
+
+@@ -94,8 +95,7 @@
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Dashboard</title <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+@@ -238,8 +238,7 @@
+    <h2>Product Change Log</h2>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Admin Name</th>
+            <th>Product ID</th <th>Admin Name</th>
+            <th>Action</th>
+            <th>Change Time</th>
+        </tr>

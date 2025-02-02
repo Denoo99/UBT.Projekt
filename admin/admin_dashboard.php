@@ -11,7 +11,7 @@ if (isset($_POST['add_product'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
     
-    $target_dir = "uploads/";
+    $target_dir = "admin/uploads/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -96,7 +96,6 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="stylees.css">
     <style>
         body {
             font-family: Arial, sans-serif;

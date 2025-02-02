@@ -72,6 +72,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
 
         h1 {
             margin-bottom: 20px;
+            text-align: center;
         }
 
         h2 {
@@ -82,14 +83,16 @@ $products = mysqli_query($conn, "SELECT * FROM products");
 
         form {
             margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         input[type="text"], input[type="submit"] {
             padding: 10px;
-            margin: 5px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            width: calc(100% - 22px); /* Full width minus padding and border */
+            width: 100%; /* Full width */
         }
 
         input[type="submit"] {
@@ -151,7 +154,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
 
         .footer-column h3 {
             margin-bottom: 10px;
-        }
+ }
 
         .footer-bottom {
             margin-top: 20px;

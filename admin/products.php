@@ -23,7 +23,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
         
         <nav>
         <ul class="menu">
-        <li><a href="admin/index.html">Ballina</a></li>
+                <li><a href="index.html">Ballina</a></li>
                 <li><a href="products.php">Produktet</a></li>
                 <li><a href="about.html">Rreth Nesh</a></li>
                 <li><a href="Forma e kontaktit.html">Kontakti</a></li>

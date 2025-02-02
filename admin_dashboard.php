@@ -10,6 +10,8 @@ if (isset($_POST['add_product'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
     
+
+    $target_dir = "uploads";
 <<<<<<< HEAD
 <<<<<<< HEAD
     $target_dir = "uploads"; // Store only the relative path
@@ -26,14 +28,18 @@ if (isset($_POST['add_product'])) {
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 
+
+    // Validate Image
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if ($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
         $uploadOk = 0;
     }
+
 
 
     if ($_FILES["image"]["size"] > 2000000) {
@@ -43,16 +49,23 @@ if (isset($_POST['add_product'])) {
 
 
     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
+
 
 
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     } else {
 
+
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+            
+
 <<<<<<< HEAD
 <<<<<<< HEAD
             // Store only the filename in the database
@@ -80,6 +93,8 @@ if (isset($_POST['add_product'])) {
             mysqli_query($conn, $insert);
             
 
+            
+
             $admin_name = $_SESSION['admin_name'];
             $product_id = mysqli_insert_id($conn);
             $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'added')";
@@ -95,9 +110,20 @@ if (isset($_POST['add_product'])) {
 }
 
 
+
+// Remove product functionality
 if (isset($_POST['remove_product'])) {
     $product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
     
+    $delete = "DELETE FROM products WHERE id = '$product_id'";
+    mysqli_query($conn, $delete);
+    
+
+    $admin_name = $_SESSION['admin_name'];
+    $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'removed')";
+    mysqli_query($conn, $log_change);
+}
+
     $delete = "DELETE FROM products WHERE id = '$product_id'";
     mysqli_query($conn, $delete);
     
@@ -139,6 +165,7 @@ if (isset($_POST['remove_product'])) {
 }
 
 
+// Fetch products
 $products = mysqli_query($conn, "SELECT * FROM products");
 ?>
 
@@ -151,96 +178,25 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <title>Admin Dashboard</title> <!-- Fixed closing tag -->
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2, h3 {
-            color: #333;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        h2 {
-            margin-top: 30px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-        }
-
-        form {
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        input[type="text"], input[type="submit"], input[type="file"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%; /* Full width */
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #007bff;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #333; }
+        h1 { text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #ddd; padding: 12px; }
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        input[type="text"], input[type="submit"], input[type="file"] { padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%; }
+        input[type="submit"] { background-color: #007bff; color: white; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
+
 <header class="navbar">
     <div class="logo">
-        <a href="index.html"><img src="foto/absolute.png" alt="logo e absolute mall" width="130px" height="100px"></a>
+        <a href="index.html"><img src="foto/absolute.png" alt="logo" width="130px" height="100px"></a>
     </div>
-    
     <nav>
         <ul class="menu">
             <li><a href="index.html">Ballina</a></li>
@@ -280,9 +236,9 @@ $products = mysqli_query($conn, "SELECT * FROM products");
             <td><?php echo $product['price']; ?>€</td>
             <td><img src="<?php echo $target_dir . $product['image']; ?>" alt="<?php echo $product['name']; ?>" width="50"></td>
             <td>
-                <form action="" method="post" style="display:inline;">
+                <form action="" method="post">
                     <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                    <input type="submit" name="remove_product" value ="Remove">
+                    <input type="submit" name="remove_product" value="Remove">
                 </form>
             </td>
         </tr>
@@ -322,6 +278,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
             <p>Telefoni: +383 44/48/49 - 123456</p>
         </div>
         <div class="footer-column">
+            <h 3>Rrjetet tona sociale</h3>
             <h 3>Rrjetet tona sociale</h3>
             <ul class="social-links">
                 <li><a href="https://www.facebook.com/">Facebook</a></li>

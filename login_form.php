@@ -3,7 +3,7 @@
 session_start();
 
 require_once 'Database.php'; // Include the Database class
-require_once 'User.php'; // Include the User class (Fixed the space in file name)
+require_once 'User .php'; // Include the User class (Fixed the space in file name)
 
 $db = new Database();
 $conn = $db->getConnection();

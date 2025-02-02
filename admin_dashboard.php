@@ -11,7 +11,12 @@ if (isset($_POST['add_product'])) {
     $price = mysqli_real_escape_string($conn, $_POST['price']);
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     $target_dir = "uploads"; // Store only the relative path
+=======
+
+    $target_dir = "uploads";
+>>>>>>> parent of ff87e07 (ndryshime)
 =======
 
     $target_dir = "uploads";
@@ -49,6 +54,7 @@ if (isset($_POST['add_product'])) {
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             // Store only the filename in the database
             $image_filename = basename($_FILES["image"]["name"]);
             $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$image_filename')";
@@ -65,6 +71,8 @@ if (isset($_POST['add_product'])) {
                 echo "Error: " . mysqli_error($conn);
             }
 =======
+=======
+>>>>>>> parent of ff87e07 (ndryshime)
             echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
             
 
@@ -76,6 +84,9 @@ if (isset($_POST['add_product'])) {
             $product_id = mysqli_insert_id($conn);
             $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'added')";
             mysqli_query($conn, $log_change);
+<<<<<<< HEAD
+>>>>>>> parent of ff87e07 (ndryshime)
+=======
 >>>>>>> parent of ff87e07 (ndryshime)
         } else {
             echo "Sorry, there was an error uploading your file.";
@@ -90,6 +101,7 @@ if (isset($_POST['remove_product'])) {
     $delete = "DELETE FROM products WHERE id = '$product_id'";
     mysqli_query($conn, $delete);
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     if ($row['count'] > 0) {
         // First, delete the related records in product_changes
@@ -114,10 +126,15 @@ if (isset($_POST['remove_product'])) {
         echo "Product does not exist.";
     }
 =======
+=======
+>>>>>>> parent of ff87e07 (ndryshime)
 
     $admin_name = $_SESSION['admin_name'];
     $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'removed')";
     mysqli_query($conn, $log_change);
+<<<<<<< HEAD
+>>>>>>> parent of ff87e07 (ndryshime)
+=======
 >>>>>>> parent of ff87e07 (ndryshime)
 }
 

@@ -11,7 +11,7 @@ if (isset($_POST['add_product'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
     
-    $target_dir = "admin/uploads/";
+    $target_dir = "uploads/"; // Store only the relative path
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -38,6 +38,7 @@ if (isset($_POST['add_product'])) {
         echo "Sorry, your file was not uploaded.";
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            // Store only the relative path in the database
             $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$target_file')";
             mysqli_query($conn, $insert);
             
@@ -94,9 +95,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="stylees.css">
+    <title>Admin Dashboard</title <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -190,12 +189,11 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     
     <nav>
         <ul class="menu">
-            <li><a href="admin/index.html">Ballina</a></li>
-            <li><a href="admin/products.php">Produktet</a></li>
-            <li><a href="admin/about.html">Rreth Nesh</a></li>
-            <li><a href="admin/login_form.php">Login</a></li>
-            <li><a href="admin/Forma e kontaktit.html">Kontakti</a></li>
-            <li><a href="logout.php">Log Out</a></li>
+            <li><a href="index.html">Ballina</a></li>
+            <li><a href="products.php">Produktet</a></li>
+            <li><a href="about.html">Rreth Nesh</a></li>
+            <li><a href="Forma e kontaktit.html">Kontakti</a></li>
+            <li><a href="..\logout.php">Log Out</a></li>
         </ul>
     </nav>
 </header>
@@ -240,8 +238,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <h2>Product Change Log</h2>
     <table>
         <tr>
-            <th>Product ID</th>
-            <th>Admin Name</th>
+            <th>Product ID</th <th>Admin Name</th>
             <th>Action</th>
             <th>Change Time</th>
         </tr>

@@ -15,4 +15,3 @@ Versioni 3.1 - 02/02/2025
 Versioni 3.2 - 02/02/2025
 
 Versioni final 3.3 - 02/02/2025
-

@@ -2,16 +2,16 @@
 @include 'config.php';
 session_start();
 
-// Check if the user is logged in as admin
+
 if (!isset($_SESSION['admin_name'])) {
     header('location:login_form.php');
     exit();
 }
 
-// Fetch current products
+
 $products = mysqli_query($conn, "SELECT * FROM products");
 
-// Fetch contact submissions
+
 $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY submitted_at DESC");
 ?>
 
@@ -66,7 +66,7 @@ $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY s
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            width: 100%; /* Full width */
+            width: 100%;
         }
 
         input[type="submit"] {

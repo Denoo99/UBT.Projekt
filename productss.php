@@ -1,7 +1,6 @@
 <?php
 @include 'config.php';
 
-// Fetch products from the database
 $products = mysqli_query($conn, "SELECT * FROM products");
 ?>
 

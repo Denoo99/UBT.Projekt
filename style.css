@@ -335,7 +335,7 @@ footer {
 
 
 .about-hero {
-    background-image: url('foto/monitor.png'); /* Add a relevant image */
+    background-image: url('foto/monitor.png');
     background-size: cover;
     background-position: center;
     color: white;

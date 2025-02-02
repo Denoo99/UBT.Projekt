@@ -2,8 +2,8 @@
 @include 'config.php';
 session_start();
 
-require_once 'Database.php'; // Include the Database class
-require_once 'User .php'; // Include the User class
+require_once 'Database.php';
+require_once 'User .php';
 
 $db = new Database();
 $conn = $db->getConnection();

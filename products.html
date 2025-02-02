@@ -1,9 +1,16 @@
+<?php
+@include 'config.php';
+
+// Fetch products from the database
+$products = mysqli_query($conn, "SELECT * FROM products");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absolute Mall</title>
+    <title>Absolute Mall - Produktet</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -17,7 +24,7 @@
         <nav>
             <ul class="menu">
                 <li><a href="index.html">Ballina</a></li>
-                <li><a href="products.html">Produktet</a></li>
+                <li><a href="products.php">Produktet</a></li>
                 <li><a href="about.html">Rreth Nesh</a></li>
                 <li><a href="login_form.php">Login</a></li>
                 <li><a href="Forma e kontaktit.html">Kontakti</a></li>
@@ -26,103 +33,28 @@
     </header>
 
     <main>
-        
-         <div class="search-bar">
+        <div class="search-bar">
             <input type="text" id="search-input" placeholder="Kërkoni produkte..." onkeyup="searchProduct(event)">
             <button onclick="searchProduct()">Search</button>
         </div>
 
-      
         <section class="product-section">
             <h2>Produktet tona</h2>
             <div class="product-grid">
-                <div class="product-card" data-name="Tastiere" data-price="500">
-                    <img src="foto/keyboard.png" alt="Keyboard">
-                    <h3>Tastierë</h3>
-                    <p>500€</p>
+                <?php while ($product = mysqli_fetch_assoc($products)) { ?>
+                <div class="product-card" data-name="<?php echo $product['name']; ?>" data-price="<?php echo $product['price']; ?>">
+                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                    <h3><?php echo $product['name']; ?></h3>
+                    <p><?php echo $product['price']; ?>€</p>
                 </div>
-                <div class="product-card" data-name="Iphone" data-price="1200">
-                    <img src="foto/16pro.png" alt="Iphone">
-                    <h3>Iphone 16 Pro</h3>
-                    <p>1200€</p>
-                </div>
-                <div class="product-card" data-name="Mikrofon" data-price="300">
-                    <img src="foto/mikrofoni.png" alt="Tablet">
-                    <h3>Mikrofon</h3>
-                    <p>300€</p>
-                </div>
-                <div class="product-card" data-name="mausi" data-price="100">
-                    <img src="foto/mouse.png" alt="maus">
-                    <h3>Mausi</h3>
-                    <p>100€</p>
-                </div>
-                <div class="product-card" data-name="mausi" data-price="100">
-                    <img src="foto/mouse.png" alt="maus">
-                    <h3>Mausi</h3>
-                    <p>100€</p>
-                </div>
-                <div class="product-card" data-name="mausi" data-price="100">
-                    <img src="foto/mouse.png" alt="maus">
-                    <h3>Mausi</h3>
-                    <p>100€</p>
-                </div>
-                <div class="product-card" data-name="mausi" data-price="100">
-                    <img src="foto/mouse.png" alt="maus">
-                    <h3>Mausi</h3>
-                    <p>100€</p>
-                </div>
-                <div class="product-card" data-name="mausi" data-price="100">
-                    <img src="foto/mouse.png" alt="maus">
-                    <h3>Mausi</h3>
-                    <p>100€</p>
-                </div>
+                <?php } ?>
             </div>
         </section>
 
-
         <section class="black-friday-section">
             <h2>Black Friday</h2>
-            <div class="product-grid" data-name="iphone">
-                <div class="product-card">
-                    <img src="foto/iphone.png" alt="iphone pro max">
-                    <h3>Iphone 16 Pro Max</h3>
-                    <p><del>1000€</del> <span>750€</span></p>
-                </div>
-                <div class="product-card" data-name="laptop">
-                    <img src="foto/laptop.png" alt="laptop">
-                    <h3>Laptop</h3>
-                    <p><del>600€</del> <span>520€</span></p>
-                </div>
-                <div class="product-card" data-name="monitor">
-                    <img src="foto/monitor.png" alt="Monitor">
-                    <h3>Monitor</h3>
-                    <p><del>500€</del> <span>350€</span></p>
-                </div>
-                <div class="product-card" data-name="monitor">
-                    <img src="foto/monitor.png" alt="Monitor">
-                    <h3>Monitor</h3>
-                    <p><del>500€</del> <span>350€</span></p>
-                </div>
-                <div class="product-card" data-name="monitor">
-                    <img src="foto/monitor.png" alt="Monitor">
-                    <h3>Monitor</h3>
-                    <p><del>500€</del> <span>350€</span></p>
-                </div>
-                <div class="product-card" data-name="monitor">
-                    <img src="foto/monitor.png" alt="Monitor">
-                    <h3>Monitor</h3>
-                    <p><del>500€</del> <span>350€</span></p>
-                </div>
-                <div class="product-card" data-name="monitor">
-                    <img src="foto/monitor.png" alt="Monitor">
-                    <h3>Monitor</h3>
-                    <p><del>500€</del> <span>350€</span></p>
-                </div>
-                <div class="product-card" data-name="monitor">
-                    <img src="foto/monitor.png" alt="Monitor">
-                    <h3>Monitor</h3>
-                    <p><del>500€</del> <span>350€</span></p>
-                </div>
+            <div class="product-grid">
+                <!-- You can add specific Black Friday products here if needed -->
             </div>
         </section>
     </main>
@@ -141,10 +73,9 @@
             <div class="footer-column">
                 <h3>Rrjetet tona sociale</h3>
                 <ul class="social-links">
-                    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i> Platforma X</a></li>
-                    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://x.com/?lang=en">Platforma X</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
                 </ul>                
             </div>
         </div>

@@ -17,5 +17,6 @@ header("Expires: 0"); // Proxies.
 
 // Redirect to the index page
 header('Location: index.html');
+session_destroy();
 exit(); // Ensure no further code is executed
 ?>

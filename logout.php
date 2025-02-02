@@ -11,11 +11,11 @@ $_SESSION = [];
 session_destroy();
 
 // Prevent caching
-header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0"); // HTTP 1.1.
 header("Pragma: no-cache"); // HTTP 1.0.
 header("Expires: 0"); // Proxies.
 
-// Redirect to login page
+// Redirect to the login page
 header("Location: index.html");
 exit(); // Ensure no further execution
 

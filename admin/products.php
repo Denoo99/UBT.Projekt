@@ -29,6 +29,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
                 <li><a href="admin/login_form.php">Login</a></li>
                 <li><a href="admin/Forma e kontaktit.html">Kontakti</a></li>
                 <li><a href="logout.php">Log Out</a></li>
+                <li><a href="admin_dashboard.php">Admin Dashboard</a></li>
             </ul>
         </nav>
     </header>

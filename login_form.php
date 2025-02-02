@@ -23,9 +23,6 @@ if (isset($_POST['submit'])) {
    <title>Login</title>
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="styles.css">
-   <script>
-    window.history.back();
-   </script>
 </head>
 <body>
 

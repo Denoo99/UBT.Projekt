@@ -8,6 +8,3 @@ header('location:login_form.php')
 
 ?>
 
-<script>
-    window.history.back();
-   </script>

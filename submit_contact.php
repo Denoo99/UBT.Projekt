@@ -7,10 +7,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message = mysqli_real_escape_string($conn, $_POST['message']);
 
     $query = "INSERT INTO contact_submissions (name, email, message) VALUES ('$name', '$email', '$message')";
-    if (mysqli_query($conn, $query)) {
-        echo "Success";
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
 }
 ?>

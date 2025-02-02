@@ -101,7 +101,7 @@ $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY s
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Absolute Mall</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -209,17 +209,17 @@ $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY s
 </header>
 
 <div class="container">
-    <h3>Welcome, <span><?php echo $_SESSION['admin_name']; ?></span></h3>
+    <h3>Miresevjen, <span><?php echo $_SESSION['admin_name']; ?></span></h3>
     <h1>Admin Dashboard</h1>
 
-    <h2>Contact Form Submissions</h2>
+    <h2>Pjesa e formes se kontaktit</h2>
     <table>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Emri</th>
             <th>Email</th>
-            <th>Message</th>
-            <th>Submitted At</th>
+            <th>Mesazhi</th>
+            <th>Koha e dergeses</th>
         </tr>
         <?php while ($submission = mysqli_fetch_assoc($submissions)) { ?>
         <tr>
@@ -232,22 +232,21 @@ $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY s
         <?php } ?>
     </table>
 
-    <h2>Add Product</h2>
+    <h2>Shtimi i produkteve</h2>
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" required placeholder="Product Name">
-        <input type="text" name="price" required placeholder="Product Price">
-        <input type="file" name="image" required accept="image/*">
-        <input type="submit" name="add_product" value="Add Product">
+        <input type="text" name="name" required placeholder="Emri i produktit">
+        <input type="text" name="price" required placeholder="Qmimi">
+        <input type="file" name="image" required accept="foto">
+        <input type="submit" name="add_product" value="Shto produktin">
     </form>
 
-    <h2>Current Products</h2>
+    <h2>Produktet e tanishme</h2>
     <table>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Image</th>
-            <th>Action</th>
+            <th>Emri</th>
+            <th>Qmimi</th>
+            <th>Foto</th>
         </tr>
         <?php while ($product = mysqli_fetch_assoc($products)) { ?>
         <tr>
@@ -258,20 +257,19 @@ $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY s
             <td>
                 <form action="" method="post" style="display:inline;">
                     <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                    <input type="submit" name="remove_product" value ="Remove">
                 </form>
             </td>
         </tr>
         <?php } ?>
     </table>
 
-    <h2>Product Change Log</h2>
+    <h2>Ndryshimet e realizuara</h2>
     <table>
         <tr>
-            <th>Product ID</th>
-            <th>Admin Name</th>
-            <th>Action</th>
-            <th>Change Time</th>
+            <th>Produkti ID</th>
+            <th>Emri i adminit</th>
+            <th>Ndryshimi</th>
+            <th>Koha e ndryshimit</th>
         </tr>
         <?php
         $changes = mysqli_query($conn, "SELECT * FROM product_changes");

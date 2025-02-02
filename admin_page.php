@@ -41,9 +41,9 @@ if(!isset($_SESSION['admin_name'])){
 <div class="container">
 
    <div class="content">
-      <h3>Pershendetje <span>Admin</span></h3>
-      <h1>Miresevjen <span><?php echo $_SESSION['admin_name'] ?></span></h1>
-      <p>Kjo eshte faqja e adminit</p>
+      <h3>Përshëndetje <span>Admin</span></h3>
+      <h1>Mirësevjen <span><?php echo $_SESSION['admin_name'] ?></span></h1>
+      <p>Kjo është faqja e adminit</p>
       <a href="logout.php" class="btn">Log out</a>
    </div>
 

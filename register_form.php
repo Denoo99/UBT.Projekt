@@ -34,11 +34,11 @@ if (isset($_POST['submit'])) {
       <input type="password" name="password" required placeholder="Vendos passwordin">
       <input type="password" name="cpassword" required placeholder="Konfirmo passwordin">
       <select name="user_type">
-         <option value="user">User </option>
+         <option value="user">User</option>
          <option value="admin">Admin</option>
       </select>
       <input type="submit" name="submit" value="Regjistrohu tani" class="form-btn">
-      <p>Keni nje llogari? <a href="login_form.php">Kyçu tani</a></p>
+      <p>Keni një llogari? <a href="login_form.php">Kyçu tani</a></p>
    </form>
 </div>
 </body>

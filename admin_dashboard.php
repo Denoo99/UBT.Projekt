@@ -22,12 +22,12 @@ if (isset($_POST['add_product'])) {
     if ($check !== false) {
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        echo "File nuk eshte foto";
         $uploadOk = 0;
     }
 
     if ($_FILES["image"]["size"] > 2000000) {
-        echo "Sorry, your file is too large.";
+        echo "File eshte i madh";
         $uploadOk = 0;
     }
 
@@ -52,7 +52,7 @@ if (isset($_POST['add_product'])) {
             header('Location: admin_dashboard.php');
             exit();
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "Ka error";
         }
     }
 }
@@ -207,17 +207,17 @@ $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY s
 </header>
 
 <div class="container">
-    <h3>Miresevjen, <span><?php echo $_SESSION['admin_name']; ?></span></h3>
+    <h3>Mirësevjen, <span><?php echo $_SESSION['admin_name']; ?></span></h3>
     <h1>Admin Dashboard</h1>
 
-    <h2>Pjesa e formes se kontaktit</h2>
+    <h2>Pjesa e formës së kontaktit</h2>
     <table>
         <tr>
             <th>ID</th>
             <th>Emri</th>
             <th>Email</th>
             <th>Mesazhi</th>
-            <th>Koha e dergeses</th>
+            <th>Koha e dërgesës</th>
         </tr>
         <?php while ($submission = mysqli_fetch_assoc($submissions)) { ?>
         <tr>
@@ -233,8 +233,8 @@ $submissions = mysqli_query($conn, "SELECT * FROM contact_submissions ORDER BY s
     <h2>Shtimi i produkteve</h2>
     <form action="" method="post" enctype="multipart/form-data">
         <input type="text" name="name" required placeholder="Emri i produktit">
-        <input type="text" name="price" required placeholder="Qmimi">
-        <input type="file" name="image" required accept="foto">
+        <input type="text" name="price" required placeholder="Çmimi">
+        <input type="file" name="image" required accept="Foto">
         <input type="submit" name="add_product" value="Shto produktin">
     </form>
 

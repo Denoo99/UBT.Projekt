@@ -194,15 +194,14 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     
     <nav>
         <ul class="menu">
-            <li><a href="index.html">Ballina</a></li>
-            <li><a href="products.php">Produktet</a></li>
-            <li><a href="about.html">Rreth Nesh</a></li>
-            <li><a href="Forma e kontaktit.html">Kontakti</a></li>
+            <li><a href="indexx.html">Ballina</a></li>
+            <li><a href="productss.php">Produktet</a></li>
+            <li><a href="aboutt.html">Rreth Nesh</a></li>
+            <li><a href="Forma e kontaktitt.html">Kontakti</a></li>
             <?php if (isset($_SESSION['admin_name'])): ?>
                 <li><a href="admin_dashboard.php">Admin Dashboard</a></li>
                 <li><a href="logout.php">Log Out</a></li>
             <?php else: ?>
-                <li><a href="login_form.php">Login</a></li>
             <?php endif; ?>
         </ul>
     </nav>

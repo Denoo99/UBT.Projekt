@@ -28,6 +28,11 @@ if (isset($_POST['submit'])) {
         window.onload = function() {
             sessionStorage.clear();
         };
+
+        history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
         </script>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">

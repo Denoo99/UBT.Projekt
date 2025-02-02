@@ -9,6 +9,86 @@ if (!isset($_SESSION['admin_name'])) {
 }
 
 
+if (isset($_POST['add_product'])) {
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $price = mysqli_real_escape_string($conn, $_POST['price']);
+    
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    if ($check !== false) {
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+
+    if ($_FILES["image"]["size"] > 2000000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    if (!in_array($imageFileType, ['jpg', 'png', 'jpeg', 'gif'])) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$target_file')";
+            mysqli_query($conn, $insert);
+            
+            $admin_name = $_SESSION['admin_name'];
+            $product_id = mysqli_insert_id($conn);
+            $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'added')";
+            mysqli_query($conn, $log_change);
+            
+
+            header('Location: admin_dashboard.php');
+            exit();
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+}
+
+
+if (isset($_POST['remove_product'])) {
+    $product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
+    
+
+    $check_product = "SELECT COUNT(*) as count FROM products WHERE id = '$product_id'";
+    $result = mysqli_query($conn, $check_product);
+    $row = mysqli_fetch_assoc($result);
+    
+    if ($row['count'] > 0) {
+
+        $delete_changes = "DELETE FROM product_changes WHERE product_id = '$product_id'";
+        mysqli_query($conn, $delete_changes);
+        
+
+        $delete = "DELETE FROM products WHERE id = '$product_id'";
+        mysqli_query($conn, $delete);
+        
+        $admin_name = $_SESSION['admin_name'];
+
+        $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'removed')";
+        mysqli_query($conn, $log_change);
+        
+
+        header('Location: admin_dashboard.php');
+        exit();
+    } else {
+        echo "Product does not exist.";
+    }
+}
+
+
 $products = mysqli_query($conn, "SELECT * FROM products");
 
 

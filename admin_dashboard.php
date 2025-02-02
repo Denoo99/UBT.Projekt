@@ -6,36 +6,75 @@ if (!isset($_SESSION['admin_name'])) {
     header('location:login_form.php');
 }
 
-// Handle adding a product
 if (isset($_POST['add_product'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
-    $image = mysqli_real_escape_string($conn, $_POST['image']);
     
-    $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$image')";
-    mysqli_query($conn, $insert);
-    
-    // Log the change
-    $admin_name = $_SESSION['admin_name'];
-    $product_id = mysqli_insert_id($conn);
-    $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'added')";
-    mysqli_query($conn, $log_change);
+
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    if ($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+
+
+    if ($_FILES["image"]["size"] > 2000000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+            
+
+            $insert = "INSERT INTO products (name, price, image) VALUES ('$name', '$price', '$target_file')";
+            mysqli_query($conn, $insert);
+            
+
+            $admin_name = $_SESSION['admin_name'];
+            $product_id = mysqli_insert_id($conn);
+            $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'added')";
+            mysqli_query($conn, $log_change);
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
 }
 
-// Handle removing a product
+
 if (isset($_POST['remove_product'])) {
     $product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
     
     $delete = "DELETE FROM products WHERE id = '$product_id'";
     mysqli_query($conn, $delete);
     
-    // Log the change
+
     $admin_name = $_SESSION['admin_name'];
     $log_change = "INSERT INTO product_changes (product_id, admin_name, action) VALUES ('$product_id', '$admin_name', 'removed')";
     mysqli_query($conn, $log_change);
 }
 
-// Fetch products
+
 $products = mysqli_query($conn, "SELECT * FROM products");
 ?>
 
@@ -47,9 +86,8 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylees.css">
     <style>
-        /* Admin Dashboard Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -88,7 +126,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
             gap: 10px;
         }
 
-        input[type="text"], input[type="submit"] {
+        input[type="text"], input[type="submit"], input[type="file"] {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -132,33 +170,6 @@ $products = mysqli_query($conn, "SELECT * FROM products");
         tr:hover {
             background-color: #f1f1f1;
         }
-
-        footer {
-            background-color: #143b38;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .footer-column {
-            flex: 1 1 30%;
-            padding: 10px;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 10px;
- }
-
-        .footer-bottom {
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -184,10 +195,10 @@ $products = mysqli_query($conn, "SELECT * FROM products");
     <h1>Admin Dashboard</h1>
 
     <h2>Add Product</h2>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="text" name="name" required placeholder="Product Name">
         <input type="text" name="price" required placeholder="Product Price">
-        <input type="text" name="image" required placeholder="Image URL">
+        <input type="file" name="image" required accept="image/*">
         <input type="submit" name="add_product" value="Add Product">
     </form>
 
@@ -249,7 +260,7 @@ $products = mysqli_query($conn, "SELECT * FROM products");
             <p>Telefoni: +383 44/48/49 - 123456</p>
         </div>
         <div class="footer-column">
-            <h3>Rrjetet tona sociale</h3>
+            <h 3>Rrjetet tona sociale</h3>
             <ul class="social-links">
                 <li><a href="https://www.facebook.com/">Facebook</a></li>
                 <li><a href="https://x.com/?lang=en">Platforma X</a></li>
